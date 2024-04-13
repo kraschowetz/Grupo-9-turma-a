@@ -1,0 +1,8 @@
+0:*Você abre seus olhos:1:/...>1/flush
+1:*Você olha ao redor:1:/...>2
+2:*está muito frio:1:/...>3
+3:*Você não se lembra de nada:1:/...>4
+4:*Você não sente medo:2:/Quem me trouxe para cá?>5:...>6
+5:*Você não sabe:1:/...>6
+6:*o que você faz?:2:/examina a sala onde está>7:sai da sala>10
+7:*Você esta numa sala bezerro, fria, camundongo:1:/...>6
