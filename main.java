@@ -3,7 +3,8 @@ import java.io.BufferedReader;      //importa a classe que pega o arquivo
 import java.io.FileReader;          //importa a classe que le o arquivo como texto
 import java.io.IOException;         //importa a classe que gerencia os erros
 
-class Main{
+class Main
+{
     /**texto e input**/
     static Scanner input;
     static String textoAtual = "";
@@ -11,7 +12,8 @@ class Main{
     static int estadoDialogo = 0;
 
     //função principal
-    public static void main(String[] args) {
+    public static void main(String[] args)
+    {
         //iniciar variaveis
         input = new Scanner(System.in);
 
@@ -21,7 +23,8 @@ class Main{
         iniciarMenu();
     }
 
-    static void lerArquivo(String local){
+    static void lerArquivo(String local)
+    {
         /*
          * FUNÇÃO LER ARQUIVO:
          * 
@@ -33,7 +36,8 @@ class Main{
          * -caso não consiga exibe uma mensagem de erro
          * 
          */
-        try{
+        try
+        {
             FileReader arquivo = new FileReader(local);
             BufferedReader leitor = new BufferedReader(arquivo);
 
@@ -47,13 +51,15 @@ class Main{
             leitor.close();
 
         }
-        catch(IOException e){
+        catch(IOException e)
+        {
             e.printStackTrace();
             System.out.println("ocorreu um erro :(");
         }
     }
 
-    static void iniciarMenu(){
+    static void iniciarMenu()
+    {
         /*
          * FUNÇÃO INICIAR MENU:
          * 
@@ -78,8 +84,10 @@ class Main{
         String estado = "0";
         boolean fechado = false;
 
-        do{
-            switch (estado) {
+        do
+        {
+            switch (estado)
+            {
                 case "0":   //estado inicial
                     System.out.print("\033[H\033[2J");
                     System.out.flush();
@@ -118,7 +126,8 @@ class Main{
         while(!fechado);
     }
 
-    static void pegarLinhaDeDialogo(){
+    static void pegarLinhaDeDialogo()
+    {
         /*
          * FUNÇÃO PEGAR LINHA DE DIÁLOGO:
          * 
@@ -135,8 +144,10 @@ class Main{
          */
         String[] linhas = textoAtual.split("\n");
 
-        for(String l : linhas){
-            if(Integer.parseInt(l.split(":")[0]) == estadoDialogo){
+        for(String l : linhas)
+        {
+            if(Integer.parseInt(l.split(":")[0]) == estadoDialogo)
+            {
                 linhaAtual = l;
                 return;
             }
@@ -144,7 +155,8 @@ class Main{
         linhaAtual = "0:erro! nao foi possivel achar a linha de dialogo (" + estadoDialogo +"):1:/okay>0"; 
     }
 
-    static void atualizarDialogo(String entrada){
+    static void atualizarDialogo(String entrada)
+    {
         /*
          * FUNÇÃO ATUALIZAR DIÁLOGO:
          * 
@@ -162,17 +174,25 @@ class Main{
          *      muda o estado do diálogo baseado na opção selecionada
          *      pega a linha de dialogo nova()
          *      atualiza a quantidade de opções baseado na linha nova
+         *      verifica se a linha de dialogo não possui nenhuma flag
          * 
          * -exibe o texto da linha de diálogo atual
          * 
          * -exibe todas as opções de resposta para a linha atual
+         * 
+         * -caso exista, executa o código da flag
          */
+
+        String flag = "";
+
         pegarLinhaDeDialogo();  
 
-        try{
+        try
+        {
             Integer.parseInt(entrada);
         }
-        catch(NumberFormatException e){
+        catch(NumberFormatException e)
+        {
             System.out.print("\033[H\033[2J");
             System.out.flush();
 
@@ -183,7 +203,8 @@ class Main{
 
         int qntDeOpcoes = Integer.parseInt(linhaAtual.split(":")[2]);
 
-        if(Integer.parseInt(entrada) < 0 || Integer.parseInt(entrada) > qntDeOpcoes){
+        if(Integer.parseInt(entrada) < 0 || Integer.parseInt(entrada) > qntDeOpcoes)
+        {
             System.out.print("\033[H\033[2J");
             System.out.flush();
 
@@ -192,7 +213,8 @@ class Main{
             return;
         }
 
-        if(!entrada.equals("0")){
+        if(!entrada.equals("0"))
+        {
             String opcoes = linhaAtual.split("/")[1];
             int opcaoSelecionada = Integer.parseInt(entrada) - 1;
             String subOpcao = opcoes.split(":")[opcaoSelecionada];
@@ -200,21 +222,28 @@ class Main{
             pegarLinhaDeDialogo();
             qntDeOpcoes = Integer.parseInt(linhaAtual.split(":")[2]);
 
-            if(linhaAtual.split("/").length > 2){
-                interpretarFlag(linhaAtual.split("/")[2]);
+            if(linhaAtual.split("/").length > 2)
+            {
+                flag = linhaAtual.split("/")[2];
             }
         }
 
         System.out.println("\n" + linhaAtual.split(":")[1]);
 
-        for(int i = 0; i < qntDeOpcoes; i++){
+        for(int i = 0; i < qntDeOpcoes; i++)
+        {
             String[] opcoes = linhaAtual.split("/")[1].split(":");
             System.out.println((i + 1) +") " + opcoes[i].split(">")[0]);
         }
 
+        if(!flag.equals("")){
+            interpretarFlag(flag);
+        }
+
     }
 
-    static void atualizar(){
+    static void atualizar()
+    {
         /*
          * pega a entrada de usuário
          * 
@@ -226,12 +255,14 @@ class Main{
         String entrada = input.nextLine();
         atualizarDialogo(entrada);
 
-        if(estadoDialogo >= 0){
+        if(estadoDialogo >= 0)
+        {
             atualizar();
         }
     }
 
-    static void iniciarLoopDeDialogo(){
+    static void iniciarLoopDeDialogo()
+    {
         /*
          * atualiza a linha de dialogo()
          * 
@@ -241,16 +272,45 @@ class Main{
         atualizar();
     }
 
-    static void interpretarFlag(String flag){
+    static void interpretarFlag(String flag)
+    {
         /*
          * roda um switch case com a flag a ser interpretada
          */
-        switch (flag) {
+        switch (flag) 
+        {
             case "flush":
                 System.out.println("\033[H\033[2J");
                 System.out.flush();
                 break;
+            
+            case "input":
+                lerInput("oi", 2, "você errou, tente novamente!");
+                break;
         }
+        System.out.println(flag);
+    }
+
+    static void lerInput(String alvo, int linhaAlvo, String textoDeErro)
+    {   
+        boolean acertou = false;
+
+        do
+        {
+            System.out.print("digite: ");
+            String entrada =  input.nextLine();
+            if(entrada.equals(alvo))
+            {
+                estadoDialogo = linhaAlvo;
+                acertou = true;
+            }
+            else
+            {
+                System.out.println(textoDeErro);
+            }
+            atualizarDialogo("0");
+        }
+        while(!acertou);
     }
 
 }
