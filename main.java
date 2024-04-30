@@ -8,22 +8,25 @@ public class Main
     static String textoBruto =
         """
         0:*Você abre seus olhos:1:/...>1
-        1:*você olha ao redor:1:/...>2
-        2:*está muito frio:1:/...>3
-        3:*você não se lembra de nada:1:/...>4
-        4:*você não sente medo:1:/...>5
-        5:*o que você faz?:2:/(sair do comodo)>7:(tentar se lembrar de algo)>6
-        6:*você não se lembra de como chegou nesse lugar bizarro:1:/...>5
-        7:*tem um saco no chão, parece ser um corpo:1:/inspeciono o saco>8
-        8:*é você... como isso aconteceu...:2:/impossivel! isso é só um sonho!>9:(chorar)>9
-        9:*o que você faz?:2:/(olhar ao redor)>11:(tentar se lembrar de algo)>10
-        10:*você não se lembra de nada:1:/...>9
-        11:*você está do lado de fora de uma casa desconhecida. tem uma casa no final da rua, as luzes estão acessas:1:/...>12
-        12:*o que você faz?:2:/(ir até a outra casa)>14:(analizar o ambiente)>13
-        13:*tem uma melodia vinda de um piano, o som parece vir da outra casa:1:/...>12
-        14:*você caminha até a casa:1:/...>15
-        15:*a porta da casa se abre antes de você tocar nela:1:/...>100
-        100:hora do input! dona morte se chama {nomeMorte}!:0:/0>0/input    
+        1:*Está muito frio:1:/...>2
+        2:*Você não se lembra de nada:1:/...>3
+        3:*Você não sente medo:1:/...>4
+        4:*O que você faz?:3:/(sair do comodo)>10:(tentar se lembrar de algo)>5:(observar o comodo)>6
+        5:*Você não se lembra de nada...:1:/...>4
+        6:*Você está num lugar estranho, Tem uma cama, uma porta e alguns outros objetos velhos. A Sala tem um papel de parede florido amarelo que lembra o quarto da sua infância. Tem alguns brinquedos espalhados pelo chão.:1:/...>4
+        10:*Você abre a porta e sai do quarto. Tem uma estrada e muitas arvores em volta. Você ve um pacote no chão de tamanho e formato semelhante a um corpo.:1:/...>11
+        11:*O que você faz?:1:/(examinar o pacote)>12
+        12:*É o seu corpo dentro do pacote...:3:/Não...>14:Não, isso é um sonho. Logo irei acordar>14:Como isso aconteceu?>13
+        13:*Você não sabe como isso foi acontecer...:1:/...>14
+        14:*O que você faz?:2:/(olhar em volta)>16:(olhar o seu corpo)>15
+        15:*Você ve o seu rosto... assim como você se lembra ser...:1:/...>14
+        16:*Tem uma casa no final da rua, as luzes estão acessas. Da pra ouvir uma melodia vinda de um piano, o som parece vir daquela casa:1:/...>17
+        17:*Você vai até a casa?:2:/sim>18:não>14
+        18:*Tem um pedaço de papel preso a porta, junto a um lápis. Na porta, a campainha está quebrada. Você tenta bater na porta, mas parece estar vazia. Na porta está riscado na porta o número 5 Acima da Frase 'PENSE COMO UM COMPUTADOR':1:/...>19
+        19:*Você se lambra das aulas que teve de programação durante a Faculdade. Lá você aprendeu que que o computador pensa em binário, que é a linguagem dos computadores digitais.:1:/...>20
+        20:*Na porta está riscado na porta o número 5 Acima da Frase 'PENSE COMO UM COMPUTADOR':0:/0>0/puzzlePortaPrologo
+        21:*a porta se abre antes de você tocar nela:1:/uau ;)>0/flush
+        100:hora do input! dona morte se chama {nomeMorte}!:0:/0>0/input
         """;
 
     static String possiveisNomesDaMorte[] = {
@@ -34,6 +37,8 @@ public class Main
         "DJ Arana"
     };
     static String nomeDaMorte = "";
+
+    static String nomeDoPlayer = "Susan"; //talvez use
 
     static Scanner input;
     static Random rand;
@@ -336,6 +341,9 @@ public class Main
            
             case "input":
                 lerInput("oi", 2, "sabe falar 'oi' não?");
+                break;
+            case "puzzlePortaPrologo":
+                lerInput("101", 21, "a porta não se abre");
                 break;
         }
         //System.out.println(flag);
