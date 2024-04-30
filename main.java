@@ -24,17 +24,17 @@ public class Main
         17:*Você vai até a casa?:2:/sim>18:não>14
         18:*Tem um pedaço de papel preso a porta, junto a um lápis. Na porta, a campainha está quebrada. Você tenta bater na porta, mas parece estar vazia. Na porta está riscado na porta o número 5 Acima da Frase 'PENSE COMO UM COMPUTADOR':1:/...>19
         19:*Você se lambra das aulas que teve de programação durante a Faculdade. Lá você aprendeu que que o computador pensa em binário, que é a linguagem dos computadores digitais.:1:/...>20
-        20:*Na porta está riscado na porta o número 5 Acima da Frase 'PENSE COMO UM COMPUTADOR':0:/0>0/puzzlePortaPrologo
+        20:*Como você escreveria o número 5, na base binária, neste papel?:0:/0>0/puzzlePortaPrologo
         21:*a porta se abre antes de você tocar nela:1:/uau ;)>0/flush
         100:hora do input! dona morte se chama {nomeMorte}!:0:/0>0/input
         """;
 
     static String possiveisNomesDaMorte[] = {
         "Margot",
-        "Jucléia",
-        "Marcela",
-        "Somália",
-        "DJ Arana"
+        "Maria",
+        "Elise",
+        "Diana",
+        "Nala"
     };
     static String nomeDaMorte = "";
 
