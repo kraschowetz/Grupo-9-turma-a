@@ -7,7 +7,7 @@ public class Main
     //São todas as linhas de dialogo do jogo. Sorria e acene.
     static String textoBruto =
         """
-        0:*Você abre seus olhos:1:/...>1
+        0:*Você abre seus olhos SALAMANDRA:1:/...>1
         1:*Está muito frio:1:/...>2
         2:*Você não se lembra de nada:1:/...>3
         3:*Você não sente medo:1:/...>4
