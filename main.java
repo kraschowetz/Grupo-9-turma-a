@@ -1,85 +1,101 @@
-﻿import java.util.Scanner;           //importa o scanner
-import java.io.BufferedReader;      //importa a classe que pega o arquivo
-import java.io.FileReader;          //importa a classe que le o arquivo como texto
-import java.io.IOException;         //importa a classe que gerencia os erros
+﻿import java.util.Scanner;
+import java.util.Random;
+import java.util.concurrent.TimeUnit;
 
-class Main
+public class Main
 {
-    /**texto e input**/
+    //São todas as linhas de dialogo do jogo. Sorria e acene.
+    static String textoBruto =
+        """
+        0:*Você abre seus olhos:1:/...>1
+        1:*você olha ao redor:1:/...>2
+        2:*está muito frio:1:/...>3
+        3:*você não se lembra de nada:1:/...>4
+        4:*você não sente medo:1:/...>5
+        5:*o que você faz?:2:/(sair do comodo)>7:(tentar se lembrar de algo)>6
+        6:*você não se lembra de como chegou nesse lugar bizarro:1:/...>5
+        7:*tem um saco no chão, parece ser um corpo:1:/inspeciono o saco>8
+        8:*é você... como isso aconteceu...:2:/impossivel! isso é só um sonho!>9:(chorar)>9
+        9:*o que você faz?:2:/(olhar ao redor)>11:(tentar se lembrar de algo)>10
+        10:*você não se lembra de nada:1:/...>9
+        11:*você está do lado de fora de uma casa desconhecida. tem uma casa no final da rua, as luzes estão acessas:1:/...>12
+        12:*o que você faz?:2:/(ir até a outra casa)>14:(analizar o ambiente)>13
+        13:*tem uma melodia vinda de um piano, o som parece vir da outra casa:1:/...>12
+        14:*você caminha até a casa:1:/...>15
+        15:*a porta da casa se abre antes de você tocar nela:1:/...>100
+        100:hora do input! dona morte se chama {nomeMorte}!:0:/0>0/input    
+        """;
+
+    static String possiveisNomesDaMorte[] = {
+        "Margot",
+        "Jucléia",
+        "Marcela",
+        "Somália",
+        "DJ Arana"
+    };
+    static String nomeDaMorte = "";
+
     static Scanner input;
-    static String textoAtual = "";
-    static String linhaAtual = "";
+    static Random rand;
+    static String linhaAtual;
     static int estadoDialogo = 0;
 
-    //função principal
-    public static void main(String[] args)
+    static final int TEMPO_DE_DIALOGO = 15;
+    static final int INTERVALO_DE_OPCOES = 40;
+    static final int TEMPO_DE_OPCOES = 7;
+
+    public static void main(String args[]) throws Exception
     {
-        //iniciar variaveis
+        /*
+         * VOID MAIN:
+         *
+         * -inicializa o random
+         * -inicializa o scanner
+         *
+         * -escolhe o nome da morte
+         * -aplica o nome da morte no texto bruto
+         *
+         * -inicia o menu
+         */
+
+
+        rand = new Random();
         input = new Scanner(System.in);
 
-        //iniciar médotos
-        lerArquivo("main.txt");
-        
+
+        nomeDaMorte = possiveisNomesDaMorte
+        [
+            rand.nextInt(possiveisNomesDaMorte.length)
+        ];
+        textoBruto = textoBruto.replace("{nomeMorte}", nomeDaMorte);
+
+
         iniciarMenu();
     }
 
-    static void lerArquivo(String local)
-    {
-        /*
-         * FUNÇÃO LER ARQUIVO:
-         * 
-         * -tenta abrir o arquivo no local especificado
-         * 
-         * -caso consiga, lê todas as linhas do arquivo
-         *  e guarda elas na variavel "textoAtual"
-         * 
-         * -caso não consiga exibe uma mensagem de erro
-         * 
-         */
-        try
-        {
-            FileReader arquivo = new FileReader(local);
-            BufferedReader leitor = new BufferedReader(arquivo);
-
-            String linha = leitor.readLine();
-
-            while(linha != null){
-                textoAtual += linha + "\n";
-                linha = leitor.readLine();
-            }
-
-            leitor.close();
-
-        }
-        catch(IOException e)
-        {
-            e.printStackTrace();
-            System.out.println("ocorreu um erro :(");
-        }
-    }
-
-    static void iniciarMenu()
+    static void iniciarMenu() throws Exception
     {
         /*
          * FUNÇÃO INICIAR MENU:
-         * 
+         *
          * enquanto o menu não for fechado:
          *  
          * -estado padrão:
          *      limpa o console, exibe o titulo do jogo e guarda input do usuário
-         * 
+         *
          * -se o jogador apertar 1:
          *      exibe as instruções do jogo e aguarda um input para voltar ao estado inicial
-         * 
+         *
          * -se o jogador apertar 2:
          *      fecha o menu e inicia o jogo
-         * 
+         *
          * -se o jogador apertar 3:
          *      exibe os créditos do jogo e aguarda um input para voltar ao estado inicial
          *  
          * -se o jogador apertar 4:
          *      fecha o scanner, fecha o menu e fecha o jogo
          */
+
 
         String estado = "0";
         boolean fechado = false;
@@ -92,31 +108,35 @@ class Main
                     System.out.print("\033[H\033[2J");
                     System.out.flush();
 
+
                     System.out.println("\nBEM VINDO AO JOGO!");
                     System.out.println("\n1) instruções\n2) jogar\n3) creditos\n4) sair");
 
+
                     estado = input.nextLine();
                     break;
-                
+               
                 case "1": //estado instruções
                     System.out.println("\nLeia os textos, digite os numeros de 1-9 para selecionar a opção de diálogo escolhida");
+
 
                     input.nextLine();
                     estado = "0";
                     break;
-                
+               
                 case "2": //estado jogar
                     iniciarLoopDeDialogo();
                     fechado = true;
                     break;
-                
+               
                 case "3": //estado créditos
                     System.out.println("\nfeito por: João Pedro Kraschowetz Souza e Maria Fernanda Silva Leite");
+
 
                     input.nextLine();
                     estado = "0";
                     break;
-                
+               
                 default: //estado sair
                     fechado = true;
                     input.close();
@@ -130,19 +150,19 @@ class Main
     {
         /*
          * FUNÇÃO PEGAR LINHA DE DIÁLOGO:
-         * 
+         *
          * -transforma o texto atual em uma lista de Strings
-         * 
+         *
          * -para cada linha na lista:
          *      verifica se o 1° elemento da linha verificada antes do ":" == estado do diálogo
-         * 
+         *
          *      se for: coloca a linha de texto sendo processada na variavel "linha atual" e fecha a função
          *      
          * -caso não ache a linha que corresponde ao estado de diálogo atual:
          *      exibe a linha padrão de erro e reseta o diálogo
-         * 
+         *
          */
-        String[] linhas = textoAtual.split("\n");
+        String[] linhas = textoBruto.split("\n");
 
         for(String l : linhas)
         {
@@ -152,36 +172,37 @@ class Main
                 return;
             }
         }
-        linhaAtual = "0:erro! nao foi possivel achar a linha de dialogo (" + estadoDialogo +"):1:/okay>0"; 
+        linhaAtual = "0:erro! nao foi possivel achar a linha de dialogo (" + estadoDialogo +"):1:/okay>0";
     }
 
-    static void atualizarDialogo(String entrada)
+    static void atualizarDialogo(String entrada) throws Exception
     {
         /*
          * FUNÇÃO ATUALIZAR DIÁLOGO:
-         * 
+         *
          * pegar linha de diálogo();
-         * 
+         *
          * -verifica se a entrada do usuário não ira causar nenhum erro
-         * 
+         *
          * -se entrada não for um número:
          *      exibe mensagem de erro, reseta linha de diálogo atual
          * -se entrada for < 0 ou > quantidade de opções:
          *      exibe mensagem de erro, reseta linha de diálogo atual
-         * 
+         *
          * -se entrada do usuário não for 0:
          *      verifica qual foi a opção selecionada
          *      muda o estado do diálogo baseado na opção selecionada
          *      pega a linha de dialogo nova()
          *      atualiza a quantidade de opções baseado na linha nova
          *      verifica se a linha de dialogo não possui nenhuma flag
-         * 
+         *
          * -exibe o texto da linha de diálogo atual
-         * 
+         *
          * -exibe todas as opções de resposta para a linha atual
-         * 
+         *
          * -caso exista, executa o código da flag
          */
+
 
         String flag = "";
 
@@ -196,7 +217,8 @@ class Main
             System.out.print("\033[H\033[2J");
             System.out.flush();
 
-            System.out.println("erro: entrada não é um numero"); 
+
+            System.out.println("erro: entrada não é um numero");
             atualizarDialogo("0");
             return;
         }
@@ -207,6 +229,7 @@ class Main
         {
             System.out.print("\033[H\033[2J");
             System.out.flush();
+
 
             System.out.println("erro: opção invalida");
             atualizarDialogo("0");
@@ -222,18 +245,19 @@ class Main
             pegarLinhaDeDialogo();
             qntDeOpcoes = Integer.parseInt(linhaAtual.split(":")[2]);
 
+
             if(linhaAtual.split("/").length > 2)
             {
                 flag = linhaAtual.split("/")[2];
             }
         }
 
-        System.out.println("\n" + linhaAtual.split(":")[1]);
+        digitar("\n" + linhaAtual.split(":")[1] + "\n");
 
         for(int i = 0; i < qntDeOpcoes; i++)
         {
             String[] opcoes = linhaAtual.split("/")[1].split(":");
-            System.out.println((i + 1) +") " + opcoes[i].split(">")[0]);
+            exibirOpcoes((i + 1) +") " + opcoes[i].split(">")[0]);
         }
 
         if(!flag.equals("")){
@@ -242,13 +266,14 @@ class Main
 
     }
 
-    static void atualizar()
+
+    static void atualizar() throws Exception
     {
         /*
          * pega a entrada de usuário
-         * 
+         *
          * atualiza o dialogo baseado na entrada do usuário()
-         * 
+         *
          * se o estado do diálogo não for negativo:
          *      atualiza novamente
          */
@@ -261,38 +286,21 @@ class Main
         }
     }
 
-    static void iniciarLoopDeDialogo()
+
+    static void iniciarLoopDeDialogo() throws Exception
     {
         /*
          * atualiza a linha de dialogo()
-         * 
+         *
          * atualiza()
          */
         atualizarDialogo("0");
         atualizar();
     }
 
-    static void interpretarFlag(String flag)
-    {
-        /*
-         * roda um switch case com a flag a ser interpretada
-         */
-        switch (flag) 
-        {
-            case "flush":
-                System.out.println("\033[H\033[2J");
-                System.out.flush();
-                break;
-            
-            case "input":
-                lerInput("oi", 2, "você errou, tente novamente!");
-                break;
-        }
-        System.out.println(flag);
-    }
 
-    static void lerInput(String alvo, int linhaAlvo, String textoDeErro)
-    {   
+    static void lerInput(String alvo, int linhaAlvo, String textoDeErro) throws Exception
+    {  
         boolean acertou = false;
 
         do
@@ -313,4 +321,66 @@ class Main
         while(!acertou);
     }
 
+
+    static void interpretarFlag(String flag) throws Exception
+    {
+        /*
+         * roda um switch case com a flag a ser interpretada
+         */
+        switch (flag)
+        {
+            case "flush":
+                System.out.println("\033[H\033[2J");
+                System.out.flush();
+                break;
+           
+            case "input":
+                lerInput("oi", 2, "sabe falar 'oi' não?");
+                break;
+        }
+        //System.out.println(flag);
+    }
+
+
+    static void digitar(String texto) throws InterruptedException
+    {
+        /*
+         * VOID DIGITAR:
+         *  
+         * -para cada caractere no texto a ser digitado:
+         *      -imprimir caractere
+         *      -esperar TEMPO_DE_DIALGO milisegundos
+         */
+
+
+        for(char c : texto.toCharArray())
+        {
+            System.out.print(c);
+            TimeUnit.MILLISECONDS.sleep(TEMPO_DE_DIALOGO);
+        }
+        System.out.print("\n");
+    }
+
+
+    static void exibirOpcoes(String texto) throws Exception
+    {
+        /*
+         * VOID EXIBIR OPÇÕES:
+         *
+         * -esperar INTERVALO_DE_OPCOES milisegundos
+         *
+         * -para cada caractere no texto a ser exibido:
+         *      -imprimir caractere
+         *      -esperar TEMPO_DE_OPCOES milisegundos
+         */
+
+
+        TimeUnit.MILLISECONDS.sleep(INTERVALO_DE_OPCOES);
+        for(char c : texto.toCharArray())
+        {
+            System.out.print(c);
+            TimeUnit.MILLISECONDS.sleep(TEMPO_DE_OPCOES);
+        }
+        System.out.print("\n");
+    }
 }
