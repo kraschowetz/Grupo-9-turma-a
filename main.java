@@ -7,36 +7,36 @@ public class Main
     //São só todas as linhas de dialogo do jogo. Sorria e acene.
     static String textoBruto =
         """
-        0;*Você abre seus olhos;1;/...>1
-        1;*Está muito frio;1;/...>2
-        2;*Você não se lembra de nada;1;/...>3
-        3;*Você não sente medo;1;/...>4
-        4;*O que você faz?;3;/(sair do comodo)>10;(tentar se lembrar de algo)>5;(observar o comodo)>6
-        5;*Você não se lembra de nada...;1;/...>4
-        6;*Você está num lugar estranho, Tem uma cama, uma porta e alguns outros objetos velhos. A Sala tem um papel de parede florido amarelo que lembra o quarto da sua infância. Tem alguns brinquedos espalhados pelo chão.;1;/...>4
-        10;*Você abre a porta e sai do quarto. Tem uma estrada e muitas arvores em volta. Você ve um pacote no chão de tamanho e formato semelhante a um corpo.;1;/...>11
-        11;*O que você faz?;1;/(examinar o pacote)>12
+        0;*Você abre seus olhos;1;/[continuar]>1
+        1;*Está muito frio;1;/[continuar]>2
+        2;*Você não se lembra de nada;1;/[continuar]>3
+        3;*Você não sente medo;1;/[continuar]>4
+        4;*O que você faz?;3;/[sair do comodo]>10;[tentar se lembrar de algo]>5;[observar o comodo]>6
+        5;*Você não se lembra de nada...;1;/[continuar]>4
+        6;*Você está num lugar estranho, Tem uma cama, uma porta e alguns outros objetos velhos. A Sala tem um papel de parede florido amarelo que lembra o quarto da sua infância. Tem alguns brinquedos espalhados pelo chão.;1;/[continuar]>4
+        10;*Você abre a porta e sai do quarto. Tem uma estrada e muitas arvores em volta. Você ve um pacote no chão de tamanho e formato semelhante a um corpo.;1;/[continuar]>11
+        11;*O que você faz?;1;/[examinar o pacote]>12
         12;*É o seu corpo dentro do pacote...;3;/Não...>14;Não, isso é um sonho. Logo irei acordar>14;Como isso aconteceu?>13
-        13;*Você não sabe como isso foi acontecer...;1;/...>14
-        14;*O que você faz?;2;/(olhar em volta)>16;(olhar o seu corpo)>15
-        15;*Você ve o seu rosto... assim como você se lembra ser...;1;/...>14
+        13;*Você não sabe como isso foi acontecer...;1;/[continuar]>14
+        14;*O que você faz?;2;/[olhar em volta]>16;[olhar o seu corpo]>15
+        15;*Você ve o seu rosto... assim como você se lembra ser...;1;/[continuar]>14
         16;*Tem uma casa no final da rua, as luzes estão acessas. Da pra ouvir uma melodia vinda de um piano, o som parece vir daquela casa;1;/...>17
         17;*Você vai até a casa?;2;/sim>18;não>14
-        18;*Tem um pedaço de papel preso a porta, junto a um lápis. Na porta, a campainha está quebrada. Você tenta bater na porta, mas parece estar vazia. Na porta está riscado na porta o número 5 Acima da Frase 'PENSE COMO UM COMPUTADOR';1;/...>19
-        19;*Você se lambra das aulas que teve de programação durante a Faculdade. Lá você aprendeu que que o computador pensa em binário, que é a linguagem dos computadores digitais.;1;/...>20
+        18;*Tem um pedaço de papel preso a porta, junto a um lápis. Na porta, a campainha está quebrada. Você tenta bater na porta, mas parece estar vazia. Na porta está riscado na porta o número 5 Acima da Frase 'PENSE COMO UM COMPUTADOR';1;/[continuar]>19
+        19;*Você se lambra das aulas que teve de programação durante a Faculdade. Lá você aprendeu que que o computador pensa em binário, que é a linguagem dos computadores digitais.;1;/[continuar]>20
         20;*Como você escreveria o número 5, na base binária, neste papel?;0;/0>0/puzzlePortaPrologo
-        21;*a porta se abre antes de você tocar nela;1;/...>22
-        22;Desconhecida: Entre, jovem.;1;/Olá, com licença (entrar na casa)>23
-        23;Desconhecida: Você é {player}, correto?;2;/sim, sou eu>26;(olhar em volta)>24
-        24;*Você ve uma senhora sentada próxima a um piano, ela veste um vestido verde que cobre seus pés, usa um colar com pedras vermelhas brilhantes. Seus cabelos parecem ser cacheados e esbranquiçados, ela os prendeu num coque alto.;1;/...>25
-        25;*O piano é o único móvel dentro deste cômodo além de uma lareira. Tem uma lâmpada muito fraca pendurada ao teto, o papel de parede tem um padrão vitoriano e está bem descascado. As paredes têm diversos quadros de paisagens lindas, montanhas e cachoeiras. Tudo está muito empoeirado e tem aspecto de envelhecido.;1;/...>23
-        26;Desconhecida: Estive esperando por você durante a noite toda, aprendi novas duas músicas com este piano, você escutou durante o caminho?;2;/sim, pude escutar>28;não...>27
+        21;*a porta se abre antes de você tocar nela;1;/[continuar]>22
+        22;Desconhecida: Entre, jovem.;1;/Olá, com licença [entrar na casa]>23
+        23;Desconhecida: Você é {player}, correto?;2;/sim, sou eu>26;[olhar em volta]>24
+        24;*Você ve uma senhora sentada próxima a um piano, ela veste um vestido verde que cobre seus pés, usa um colar com pedras vermelhas brilhantes. Seus cabelos parecem ser cacheados e esbranquiçados, ela os prendeu num coque alto.;1;/[continuar]>25
+        25;*O piano é o único móvel dentro deste cômodo além de uma lareira. Tem uma lâmpada muito fraca pendurada ao teto, o papel de parede tem um padrão vitoriano e está bem descascado. As paredes têm diversos quadros de paisagens lindas, montanhas e cachoeiras. Tudo está muito empoeirado e tem aspecto de envelhecido.;1;/[continuar]>23
+        26;Desconhecida: Estive esperando por você durante a noite toda, aprendi novas duas músicas com este piano, você escutou durante o caminho?;2;/sim, pude escutar>28;não[continuar]>27
         27;Desconhecida: uma pena...;1;/por que só tem a sua casa nesta rua, a senhora mora sozinha?>29
         28;Desconhecida: uma linda musica, não é mesmo?;1;/por que só tem a sua casa nesta rua, a senhora mora sozinha?>29
         29;Desconhecida: Sim, eu moro sozinha.;1;/Como a senhora conhece meu nome? Por que estava me esperando?>30
         30;Deconhecida: ...;1;/Senhora, por favor, me diga que não morri.>31
-        31;Desconhecida: Infelizmente sim, senhorita. Olhe pela janela.;1;/(olhar pela janela)>32
-        32;*Você Não consigue ver nada do lado de fora. Como se fosse apenas um cômodo escuro do outro lado. Você percebe riscado o número 3 no vidro como se alguém tivesse tentado quebrá-lo.;1;/...>33
+        31;Desconhecida: Infelizmente sim, senhorita. Olhe pela janela.;1;/[olhar pela janela]>32
+        32;*Você Não consigue ver nada do lado de fora. Como se fosse apenas um cômodo escuro do outro lado. Você percebe riscado o número 3 no vidro como se alguém tivesse tentado quebrá-lo.;1;/[continuar]>33
         33;*Você percebe riscado o número 3... Talvez você devesse tentar converter este número. Você ainda tem o papel e o lápis.;0;/0>0/puzzleJanela
         100;hora do input! dona morte se chama {morte}!;0;/0>0/input
         """;
@@ -50,7 +50,7 @@ public class Main
     };
     static String nomeDaMorte = "";
 
-    static String nomeDoPlayer = "Susan"; //talvez use
+    static String nomeDoPlayer = "Susan";
 
     static Scanner input;
     static Random rand;
@@ -98,7 +98,6 @@ public class Main
     {
         textoBruto = textoBruto.replace("{morte}", nomeDaMorte);
         textoBruto = textoBruto.replace("{player}", nomeDoPlayer);
-
     }
 
     static void iniciarMenu() throws Exception
