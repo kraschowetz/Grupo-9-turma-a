@@ -41,7 +41,21 @@ public class Main
         34;*Vejo o meu carro, ele acertou em cheio uma arvore na floresta e está completamente destruído;1;/[continuar]>35
         35;DESCONHECIDA: Chovia tanto naquele dia... a senhorita perdeu o controle de seu carro, que saiu da estrada.;2;/A senhora por acaso é a morte?>36;Eu estou no Inferno?>36
         36;DESCONHECIDA: Hahahaha a Senhorita faz muitas perguntas, assim como todos. Não, você não está no Inferno. E eu?  as pessoas me chamam de diversos nomes, eu não sou “A Morte”, eu nunca matei ninguém. Estou aqui somente para te recepcionar. Você pode me chamar de {morte}. ;1;/ [continuar] >37
-        37;SENHORA: Susan, querida, não chore. Ambas sabemos que foi um acidente. Você não entrou de carro naquela floresta de propósito. Por mais que aquela tenha sido a sua vontade naquele momento, sabemos que, no fundo, não aquela sua intenção. ;3;/Como assim naquele momento ?>38;Eu dirigi rápido de propósito?>38;Não consigo me lembrar de nada dos últimos meses.>38
+        37;{morte}: Susan, querida, não chore. Ambas sabemos que foi um acidente. Você não entrou de carro naquela floresta de propósito. Por mais que aquela tenha sido a sua vontade naquele momento, sabemos que, no fundo, não aquela sua intenção. ;3;/Como assim naquele momento ?>38;Eu dirigi rápido de propósito?>38;Não consigo me lembrar de nada dos últimos meses.>38
+        38; {morte}: Susan, venha até mim...;1;/[continuar]>39
+        39; Ela se levantou da cadeira e se dirigiu para outro cômodo da casa.;1;/[continuar]>40
+        40; Sigo-a em silencio...;1;/[continuar]>41
+        41; Você observa ao redor ? ...;2;/[sim]>42;[não]>43
+        42; Havia uma mesa de jantar com várias cadeiras, uma lareira e mais algumas decorações. Tudo estava muito empoeirado e a iluminação do cômodo era a base de velas.>43
+        43; {morte}: Susan, você gostaria de voltar, não gostaria?;1;/Mas é claro que sim, eu tenho um bebê, você sabia?>44
+        44; {morte}: Sabia sim, a pequena Elise;1;/[continuar]>45
+
+
+
+
+
+
+
         100;hora do input! dona morte se chama {morte}!;0;/0>0/input
         """;
 
@@ -59,7 +73,7 @@ public class Main
     static Scanner input;
     static Random rand;
     static String linhaAtual;
-    static int estadoDialogo = 34;
+    static int estadoDialogo = 35;
 
     static final int TEMPO_DE_DIALOGO = 15;
     static final int INTERVALO_DE_OPCOES = 40;
