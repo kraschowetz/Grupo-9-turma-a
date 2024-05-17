@@ -59,9 +59,7 @@ public class Main
         52; *Ela andou sozinha até o próximo cômodo da casa. Ela retornou com uma pequena caixa em mãos e um bilhete.;1;/[continuar]>53
         53; {morte}: Agora vá, se apresse.;1;/[continuar]>54
         54; *Ela toca em minha testa.;1;/[continuar]>99
-
         99; CAPITULO 2 ;1;/[continuar]>100
-
         100; *Acordo dentro de meu carro, minha cabeça dói muito, mas não tem nenhum ferimento nela. O Som do alarme está muito alto e não consigo desligá-lo.;1;/[continuar]>101
         101; *Não consigo me lembrar de nada dos últimos dias. Exceto do meu último sonho, eu bati o carro. Mas como isso foi acontecer?.;1;/[continuar]>102
         103; *Olho para o lado direito. Vejo a caixa que Margot me entregou. Tem um Bilhete ao lado dela. A Caixa tem um sistema de senha de 4 dígitos nela.;1;/[continuar]>104
