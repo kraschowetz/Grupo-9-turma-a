@@ -45,10 +45,32 @@ public class Main
         38; {morte}: Susan, venha até mim...;1;/[continuar]>39
         39; Ela se levantou da cadeira e se dirigiu para outro cômodo da casa.;1;/[continuar]>40
         40; Sigo-a em silencio...;1;/[continuar]>41
-        41; Você observa ao redor ? ...;2;/[sim]>42;[não]>43
-        42; Havia uma mesa de jantar com várias cadeiras, uma lareira e mais algumas decorações. Tudo estava muito empoeirado e a iluminação do cômodo era a base de velas.>43
+        41; Você observa ao redor ? ... ;2;/[sim]>42;[não]>43
+        42; Havia uma mesa de jantar com várias cadeiras, uma lareira e mais algumas decorações. Tudo estava muito empoeirado e a iluminação do cômodo era a base de velas.;1;/[continuar]>43
         43; {morte}: Susan, você gostaria de voltar, não gostaria?;1;/Mas é claro que sim, eu tenho um bebê, você sabia?>44
         44; {morte}: Sabia sim, a pequena Elise;1;/[continuar]>45
+        45; {morte}: Senhorita, gostaria que tivéssemos mais tempo para conversar. Portanto, serei direta.;1;/[continuar]>46
+        46; {morte}: Existe algo que um vivo roubou de mim, eu não posso te contar o que seja, por enquanto. Mas é algo simples...;1;/[continuar]>47
+        47; {morte}: Portanto, eu irei propor a senhorita um acordo. Posso encaminhar sua alma de volta para o mundo dos vivos. Portanto, a senhorita devera prometer a mim que seguira minhas instruções para encontrar o que preciso. ;2;/Senhora Margot, estou confusa. Por que eu ?>48;O que roubaram da senhora ?>48
+        48; {morte}: Não há tempo de explicar, logo encontrarão a senhorita morta em seu carro. Será simples, sua vida de volta em troca de seguir minhas instruções.;1;/Quais Instruções ?>49
+        49; {morte}: Mandarei pistas, você saberá quando for o momento de seguir por determinado caminho.;1;/E caso eu não cumpra o que a senhora peça? >50
+        50; {morte}: Não poderei fazer nada a não ser esperar nosso próximo encontro. Como eu disse, não mato as pessoas. Mesmo que a senhorita não cumpra com o acordo, jamais poderia te punir.;1;/Então eu aceito, eu faria de tudo para ver minha pequena Elise, mesmo que sejam por apenas mais alguns anos. Ela é somente um bebê.>51
+        51; {morte}: Enquanto a isso.... Não, deixe para lá. Logo você descobrira. Espere um segundo...;1;/[continuar]>52
+        52; *Ela andou sozinha até o próximo cômodo da casa. Ela retornou com uma pequena caixa em mãos e um bilhete.;1;/[continuar]>53
+        53; {morte}: Agora vá, se apresse.;1;/[continuar]>54
+        54; *Ela toca em minha testa.;1;/[continuar]>99
+
+        99; CAPITULO 2 ;1;/[continuar]>100
+
+        100; *Acordo dentro de meu carro, minha cabeça dói muito, mas não tem nenhum ferimento nela. O Som do alarme está muito alto e não consigo desligá-lo.;1;/[continuar]>101
+        101; *Não consigo me lembrar de nada dos últimos dias. Exceto do meu último sonho, eu bati o carro. Mas como isso foi acontecer?.;1;/[continuar]>102
+        103; *Olho para o lado direito. Vejo a caixa que Margot me entregou. Tem um Bilhete ao lado dela. A Caixa tem um sistema de senha de 4 dígitos nela.;1;/[continuar]>104
+        104; *O bilhete diz “Pense como um computador”. Na parte de trás contém o número 11.;1;/[continuar]>105
+        105; *Portanto, os números do bilhete são números decimais. Eles não cabem no leitor da caixa. Quais números eu deveria inserir?.;1;/[continuar]>106
+
+
+
+
 
 
 
