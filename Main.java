@@ -62,9 +62,13 @@ public class Main
         99; CAPITULO 2 ;1;/[continuar]>100
         100; *Acordo dentro de meu carro, minha cabeça dói muito, mas não tem nenhum ferimento nela. O Som do alarme está muito alto e não consigo desligá-lo.;1;/[continuar]>101
         101; *Não consigo me lembrar de nada dos últimos dias. Exceto do meu último sonho, eu bati o carro. Mas como isso foi acontecer?.;1;/[continuar]>102
-        103; *Olho para o lado direito. Vejo a caixa que Margot me entregou. Tem um Bilhete ao lado dela. A Caixa tem um sistema de senha de 4 dígitos nela.;1;/[continuar]>104
-        104; *O bilhete diz “Pense como um computador”. Na parte de trás contém o número 11.;1;/[continuar]>105
-        105; *Portanto, os números do bilhete são números decimais. Eles não cabem no leitor da caixa. Quais números eu deveria inserir?.;1;/[continuar]>106
+        102; *Olho para o lado direito. Vejo a caixa que Margot me entregou. Tem um Bilhete ao lado dela. A Caixa tem um sistema de senha de 4 dígitos nela.;1;/[continuar]>103
+        103; *O bilhete diz PENSE COMO UM COMPUTADOR. Na parte de trás contém o número 11.;1;/[continuar]>104
+        104; *Portanto, os números do bilhete são números decimais. Eles não cabem no leitor da caixa. Quais números eu deveria inserir?.;0;/0>0/puzzleCaixa
+        105; *A caixa se abre no instante em que eu insiro o último número. Tem um pequeno gato laranja esculpido em madeira.;1;/[continuar]>106
+        106; *Ele se parece com um gato que passeia pelo prédio onde eu moro, me pergunto o que ele representa.;1;/[continuar]>107
+        107; *Posso escutar alguns sons de sirenes se aproximando. Tem sangue escorrendo pelo meu rosto. Me sinto tonta, como se estivesse prestes a desmaiar novamente...;1;/[continuar]>200
+        200; CAPITULO 3 ;1;/[continuar]>201
 
 
 
@@ -93,7 +97,7 @@ public class Main
     static Scanner input;
     static Random rand;
     static String linhaAtual;
-    static int estadoDialogo = 35;
+    static int estadoDialogo = 100;
 
     static final int TEMPO_DE_DIALOGO = 15;
     static final int INTERVALO_DE_OPCOES = 40;
@@ -407,6 +411,9 @@ public class Main
                 break;
             case "puzzleJanela":
                 lerInput("11", 34, "*ainda não da pra ver nada");
+
+            case "puzzleCaixa":
+                lerInput("1011", 105, "*a caixa permanece fechada");
         }
         //System.out.println(flag);
     }
