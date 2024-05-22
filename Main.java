@@ -83,20 +83,16 @@ public class Main
         215; *Mexo em meu bolso antes de colocar novas roupas e percebo que ainda possuo o mesmo pedaço de papel e o mesmo lápis. Me pergunto como isso é possível ;1;/[continuar]>216
         216; *Aquilo foi apenas um sonho, correto ? ;1;/[continuar]>217
         217; *Observo meu gaveteiro de roupas, tem uma pequena fechadura na primeira gaveta com entrada para 4 números. Observo que no meu quadro de casamento está riscado o número 12. Qual número eu deveria inserir na fechadura ?;0;/0>0/puzzleGaveteiro
-        218; *A Gaveta se Abre. Tem varios objetos junto a uma carta.;1;/[continuar]>217
-
-       
-
-
-
-
-
-
-
-
-
-
-
+        218; *A gaveta se abre. Tem varios objetos junto a uma carta.;1;/[continuar]>219
+        219; *A carta foi escrita com a letra de minha esposa. Ela diz: ;1;/[continuar]>220
+        220; Querida Susan, Me perdoe por te deixar sem me despedir, eu estava em desespero por ficar dentro deste apartamento, uma dor rasga meu peito todas as vezes em que eu observo os cômodos. Quando você ler esta carta, saiba que estou na casa de minha mãe. Sei o quão cruel fui por te deixar sozinha neste momento, mas eu não pude, não consigo te encarar nos olhos depois de tudo. Todos dizem que a culpa não foi nossa, mas no fundo, não posso deixar de acreditar que somos sim, culpadas. Sempre sua, Agnes. ;1;/[continuar]>221
+        221; *No momento em que terminei de ler a carta, senti meu corpo todo se arrepiar. Não consigo me lembrar do que fizemos, somos culpadas de que ? ;1;/[continuar]>222
+        222; *Cai em lagrimas após sentar na cama, foi quando ouvi um ruido na porta da varanda, algo esta arranhando a porta como se quisesse entrar ;1;/[continuar]>223
+        223; *Abro a porta e um gato entra em meu quarto. Ele é da mesma cor do gatinho de madeira que estava na caixa de {morte};1;/[continuar]>224
+        224; *Ele tem olhos grandes e amarelos. Me encara como se quisse me comunicar algo.;1;/[continuar]>225
+        226; *Ele mia e se dirige para o corredor, como se disesse para eu segui-lo. Você o acompanha ? ;2;/[sim]>227;[não]>227
+        227; Continua...;1;/[continuar]>228
+        228; Muito Obrigada Por jogar! Maria Fernanda Silva Leite e João Pedro Krachowetz
         100;hora do input! dona morte se chama {morte}!;0;/0>0/input
         """;
 
@@ -114,7 +110,7 @@ public class Main
     static Scanner input;
     static Random rand;
     static String linhaAtual;
-    static int estadoDialogo = 200;
+    static int estadoDialogo = 219;
 
     static final int TEMPO_DE_DIALOGO = 15;
     static final int INTERVALO_DE_OPCOES = 40;
