@@ -37,9 +37,9 @@ public class Main
         30;Desconhecida: ...;1;/Senhora, por favor, me diga que não morri.>31
         31;Desconhecida: Infelizmente sim, senhorita. Olhe pela janela.;1;/[olhar pela janela]>32
         32;*Você Não consigue ver nada do lado de fora. Como se fosse apenas um cômodo escuro do outro lado. Você percebe riscado o número 3 no vidro como se alguém tivesse tentado quebrá-lo.;1;/[continuar]>33
-        33;*Você percebe riscado o número 3... Talvez você devesse tentar converter este número. Você ainda tem o papel e o lápis.;0;/0>0/puzzleJanela
-        34;*Vejo o meu carro, ele acertou em cheio uma arvore na floresta e está completamente destruído;1;/[continuar]>35
-        35;DESCONHECIDA: Chovia tanto naquele dia... a senhorita perdeu o controle de seu carro, que saiu da estrada.;2;/A senhora por acaso é a morte?>36;Eu estou no Inferno?>36
+        33;*Talvez você devesse tentar converter este número. Você ainda tem o papel e o lápis.;0;/0>0/puzzleJanela
+        34;*Vejo o meu carro, ele acertou em cheio uma arvore na floresta e está completamente destruído;1;/[continuar]>350
+        350;DESCONHECIDA: Chovia tanto naquele dia... a senhorita perdeu o controle de seu carro, que saiu da estrada.;2;/A senhora por acaso é a morte?>36;Eu estou no Inferno?>36
         36;DESCONHECIDA: Hahahaha a Senhorita faz muitas perguntas, assim como todos. Não, você não está no Inferno. E eu?  as pessoas me chamam de diversos nomes, eu não sou “A Morte”, eu nunca matei ninguém. Estou aqui somente para te recepcionar. Você pode me chamar de {morte}. ;1;/ [continuar] >37
         37;{morte}: Susan, querida, não chore. Ambas sabemos que foi um acidente. Você não entrou de carro naquela floresta de propósito. Por mais que aquela tenha sido a sua vontade naquele momento, sabemos que, no fundo, não aquela sua intenção. ;3;/Como assim naquele momento ?>38;Eu dirigi rápido de propósito?>38;Não consigo me lembrar de nada dos últimos meses.>38
         38; {morte}: Susan, venha até mim...;1;/[continuar]>39
@@ -110,7 +110,7 @@ public class Main
     static Scanner input;
     static Random rand;
     static String linhaAtual;
-    static int estadoDialogo = 219;
+    static int estadoDialogo = 30;
 
     static final int TEMPO_DE_DIALOGO = 15;
     static final int INTERVALO_DE_OPCOES = 40;
