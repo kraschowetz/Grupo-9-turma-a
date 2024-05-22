@@ -424,12 +424,15 @@ public class Main
                 break;
             case "puzzleJanela":
                 lerInput("11", 34, "*ainda não da pra ver nada");
+                break;
 
             case "puzzleCaixa":
                 lerInput("1011", 105, "*a caixa permanece fechada");
+                break;
             
             case "puzzleGaveteiro":
-            lerInput("1100", 218, "*a gaveta permanece fechada");
+                lerInput("1100", 218, "*a gaveta permanece fechada");
+                break;
         }
         //System.out.println(flag);
     }
