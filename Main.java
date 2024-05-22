@@ -59,8 +59,8 @@ public class Main
         52; *Ela andou sozinha até o próximo cômodo da casa. Ela retornou com uma pequena caixa em mãos e um bilhete.;1;/[continuar]>53
         53; {morte}: Agora vá, se apresse.;1;/[continuar]>54
         54; *Ela toca em minha testa.;1;/[continuar]>99
-        99; CAPITULO 2 ;1;/[continuar]>100
-        100; *Acordo dentro de meu carro, minha cabeça dói muito, mas não tem nenhum ferimento nela. O Som do alarme está muito alto e não consigo desligá-lo.;1;/[continuar]>101
+        99; CAPITULO 2 ;1;/[continuar]>1000
+        1000; *Acordo dentro de meu carro, minha cabeça dói muito, mas não tem nenhum ferimento nela. O Som do alarme está muito alto e não consigo desligá-lo.;1;/[continuar]>101
         101; *Não consigo me lembrar de nada dos últimos dias. Exceto do meu último sonho, eu bati o carro. Mas como isso foi acontecer?.;1;/[continuar]>102
         102; *Olho para o lado direito. Vejo a caixa que Margot me entregou. Tem um Bilhete ao lado dela. A Caixa tem um sistema de senha de 4 dígitos nela.;1;/[continuar]>103
         103; *O bilhete diz PENSE COMO UM COMPUTADOR. Na parte de trás contém o número 11.;1;/[continuar]>104
@@ -68,8 +68,24 @@ public class Main
         105; *A caixa se abre no instante em que eu insiro o último número. Tem um pequeno gato laranja esculpido em madeira.;1;/[continuar]>106
         106; *Ele se parece com um gato que passeia pelo prédio onde eu moro, me pergunto o que ele representa.;1;/[continuar]>107
         107; *Posso escutar alguns sons de sirenes se aproximando. Tem sangue escorrendo pelo meu rosto. Me sinto tonta, como se estivesse prestes a desmaiar novamente...;1;/[continuar]>200
-        200; CAPITULO 3 ;1;/[continuar]>201
-        aaaaaaaaaa
+        200; CAPITULO 3 ;1;/[continuar]>202
+        202; *Eu apaguei após pegar o pequeno gato de madeira e acordei em meu apartamento.;1;/[continuar]>203
+        203; *Não me lembro de ter sido de meu carro e nem de como fiz o caminho até em casa. Me lembro apenas de meu ultimo sonho, aquele com a senhora {morte};1;/[continuar]>204
+        204; *Me levanto e me dirijo logo ao quarto de minha filha...;1;/[continuar]>206
+        206; *O Quarto dela esta vazio. Você observa ao redor ?;2;/[sim]>207;[não]>209
+        207; *Ele está vazio, ela não está aqui e todas as coisas dela sumiram. O guarda-roupas dela está completamente limpo, as estantes de brinquedos também. Até o tapete e as cortinas foram levados.;1;/[continuar]>209
+        209; *Me pergunto quem esvaziou este quarto ... ;1;/[continuar]>210
+        210; *Minha esposa também não está em casa.;1;/[continuar]>211
+        211; Você se dirige até a cozinha ou seu quarto ?;2;/[cozinha]>212;[quarto]>213
+        212; A comida da geladeira está toda estragada, parece que os cômodos não são limpos a muitos dias. Eu me pergunto onde as duas estão.;1;/[ir ao quarto]>213
+        213; *Volto para meu quarto, preciso pegar novas roupas para substituir as minhas rasgadas. Tem um espelho ao lado da porta. Você se observa nele ?;2;/[sim]>214;[não]>215 
+        214; *Tem um curativo em minha cabeça e ela já não dói mais. Me observo no espelho próximo a estante e me vejo com as mesmas roupas que vestia no sonho que tive com aquela velha senhora, a {morte}.;1;/[continuar]>215
+        215; *Mexo em meu bolso antes de colocar novas roupas e percebo que ainda possuo o mesmo pedaço de papel e o mesmo lápis. Me pergunto como isso é possível ;1;/[continuar]>216
+        216; *Aquilo foi apenas um sonho, correto ? ;1;/[continuar]>217
+        217; *Observo meu gaveteiro de roupas, tem uma pequena fechadura na primeira gaveta com entrada para 4 números. Observo que no meu quadro de casamento está riscado o número 12. Qual número eu deveria inserir na fechadura ?;0;/0>0/puzzleGaveteiro
+        218; *A Gaveta se Abre. Tem varios objetos junto a uma carta.;1;/[continuar]>217
+
+       
 
 
 
@@ -98,7 +114,7 @@ public class Main
     static Scanner input;
     static Random rand;
     static String linhaAtual;
-    static int estadoDialogo = 100;
+    static int estadoDialogo = 200;
 
     static final int TEMPO_DE_DIALOGO = 15;
     static final int INTERVALO_DE_OPCOES = 40;
@@ -415,6 +431,9 @@ public class Main
 
             case "puzzleCaixa":
                 lerInput("1011", 105, "*a caixa permanece fechada");
+            
+            case "puzzleGaveteiro":
+            lerInput("1100", 218, "*a gaveta permanece fechada");
         }
         //System.out.println(flag);
     }
