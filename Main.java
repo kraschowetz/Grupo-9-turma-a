@@ -69,6 +69,7 @@ public class Main
         106; *Ele se parece com um gato que passeia pelo prédio onde eu moro, me pergunto o que ele representa.;1;/[continuar]>107
         107; *Posso escutar alguns sons de sirenes se aproximando. Tem sangue escorrendo pelo meu rosto. Me sinto tonta, como se estivesse prestes a desmaiar novamente...;1;/[continuar]>200
         200; CAPITULO 3 ;1;/[continuar]>201
+        aaaaaaaaaa
 
 
 
