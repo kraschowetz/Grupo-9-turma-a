@@ -65,7 +65,7 @@ public class Main
         102; *Olho para o lado direito. Vejo a caixa que Margot me entregou. Tem um Bilhete ao lado dela. A Caixa tem um sistema de senha de 4 dígitos nela.;1;/[continuar]>103
         103; *O bilhete diz PENSE COMO UM COMPUTADOR. Na parte de trás contém o número 11.;1;/[continuar]>104
         104; *Portanto, os números do bilhete são números decimais. Eles não cabem no leitor da caixa. Quais números eu deveria inserir?.;0;/0>0/puzzleCaixa
-        105; *A caixa se abre no instante em que eu insiro o último número. Tem um pequeno gato laranja esculpido em madeira.;1;/[continuar]>106
+        105; *A caixa se abre no instante em que eu insiro o último número. Tem um pequeno gato {gato} esculpido em madeira.;1;/[continuar]>106
         106; *Ele se parece com um gato que passeia pelo prédio onde eu moro, me pergunto o que ele representa.;1;/[continuar]>107
         107; *Posso escutar alguns sons de sirenes se aproximando. Tem sangue escorrendo pelo meu rosto. Me sinto tonta, como se estivesse prestes a desmaiar novamente...;1;/[continuar]>200
         200; CAPITULO 3 ;1;/[continuar]>202
@@ -88,7 +88,7 @@ public class Main
         220; Querida Susan, Me perdoe por te deixar sem me despedir, eu estava em desespero por ficar dentro deste apartamento, uma dor rasga meu peito todas as vezes em que eu observo os cômodos. Quando você ler esta carta, saiba que estou na casa de minha mãe. Sei o quão cruel fui por te deixar sozinha neste momento, mas eu não pude, não consigo te encarar nos olhos depois de tudo. Todos dizem que a culpa não foi nossa, mas no fundo, não posso deixar de acreditar que somos sim, culpadas. Sempre sua, Agnes. ;1;/[continuar]>221
         221; *No momento em que terminei de ler a carta, senti meu corpo todo se arrepiar. Não consigo me lembrar do que fizemos, somos culpadas de que ? ;1;/[continuar]>222
         222; *Cai em lagrimas após sentar na cama, foi quando ouvi um ruido na porta da varanda, algo esta arranhando a porta como se quisesse entrar ;1;/[continuar]>223
-        223; *Abro a porta e um gato entra em meu quarto. Ele é da mesma cor do gatinho de madeira que estava na caixa de {morte};1;/[continuar]>224
+        223; *Abro a porta e um gato {gato} entra em meu quarto. Ele é da mesma cor do gatinho de madeira que estava na caixa de {morte};1;/[continuar]>224
         224; *Ele tem olhos grandes e amarelos. Me encara como se quisse me comunicar algo.;1;/[continuar]>225
         226; *Ele mia e se dirige para o corredor, como se disesse para eu segui-lo. Você o acompanha ? ;2;/[sim]>227;[não]>227
         227; Continua...;1;/[continuar]>228
@@ -119,7 +119,7 @@ public class Main
     static Scanner input;
     static Random rand;
     static String linhaAtual;
-    static int estadoDialogo = 30;
+    static int estadoDialogo = 105;
 
     static final int TEMPO_DE_DIALOGO = 15;
     static final int INTERVALO_DE_OPCOES = 40;
