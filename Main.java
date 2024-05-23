@@ -40,7 +40,7 @@ public class Main
         33;*Talvez você devesse tentar converter este número. Você ainda tem o papel e o lápis.;0;/0>0/puzzleJanela
         34;*Vejo o meu carro, ele acertou em cheio uma arvore na floresta e está completamente destruído;1;/[continuar]>350
         350;DESCONHECIDA: Chovia tanto naquele dia... a senhorita perdeu o controle de seu carro, que saiu da estrada.;2;/A senhora por acaso é a morte?>36;Eu estou no Inferno?>36
-        36;DESCONHECIDA: Hahahaha a Senhorita faz muitas perguntas, assi m como todos. Não, você não está no Inferno. E eu?  as pessoas me chamam de diversos nomes, eu não sou “A Morte”, eu nunca matei ninguém. Estou aqui somente para te recepcionar. Você pode me chamar de {morte}. ;1;/ [continuar] >37
+        36;DESCONHECIDA: Hahahaha a Senhorita faz muitas perguntas, assim como todos. Não, você não está no Inferno. E eu ?. As pessoas me chamam de diversos nomes. Eu não sou A Morte, eu nunca matei ninguém. Estou aqui somente para te recepcionar. Você pode me chamar de {morte}. ;1;/ [continuar] >37
         37;{morte}: Susan, querida, não chore. Ambas sabemos que foi um acidente. Você não entrou de carro naquela floresta de propósito. Por mais que aquela tenha sido a sua vontade naquele momento, sabemos que, no fundo, não aquela sua intenção. ;3;/Como assim naquele momento ?>38;Eu dirigi rápido de propósito?>38;Não consigo me lembrar de nada dos últimos meses.>38
         38; {morte}: Susan, venha até mim...;1;/[continuar]>39
         39; Ela se levantou da cadeira e se dirigiu para outro cômodo da casa.;1;/[continuar]>40
@@ -258,19 +258,22 @@ public class Main
         /*
          * FUNÇÃO PEGAR LINHA DE DIÁLOGO:
          *
-         * -transforma o texto atual em uma lista de Strings
+         * 1) Transforma o texto atual em uma lista de Strings. (Ele entente o "\n" como o ponto de divisão do texto em linhas).
          *
-         * -para cada linha na lista:
-         *      verifica se o 1° elemento da linha verificada antes do ":" == estado do diálogo
+         * 2) Para cada uma das linhas da Lista:
+         *      -Verifica se o 1° elemento da linha verificada antes do ";" (DIVISOR) == estado do diálogo.
          *
-         *      se for: coloca a linha de texto sendo processada na variavel "linha atual" e fecha a função
+         *      -Se for: coloca a linha de texto sendo processada na variavel "linha atual" e fecha a função.
          *      
-         * -caso não ache a linha que corresponde ao estado de diálogo atual:
-         *      exibe a linha padrão de erro e reseta o diálogo
+         * 3) Caso não ache a linha que corresponde ao estado de diálogo atual:
+         *      -Exibe a linha padrão de erro e reseta o diálogo.
          *
          */
+
+        //1)
         String[] linhas = textoBruto.split("\n");
 
+        //2)
         for(String l : linhas)
         {
             if(Integer.parseInt(l.split(DIVISOR_DE_DIALOGOS)[0]) == estadoDialogo)
@@ -279,30 +282,33 @@ public class Main
                 return;
             }
         }
+        //3)
         linhaAtual = "0;erro! nao foi possivel achar a linha de dialogo (" + estadoDialogo +");1;/okay>0";
 
     }
-    
+
+
     static void atualizarDialogo(String entrada) throws Exception
     {
         /*
          * FUNÇÃO ATUALIZAR DIÁLOGO:
          *
-         * pegar linha de diálogo();
+         * 1) Chama a Função pegarLinhaDeDialogo ();.
          *
-         * -verifica se a entrada do usuário não ira causar nenhum erro
+         * 2) Verifica se a entrada do usuário não ira causar nenhum erro:
          *
-         * -se entrada não for um número:
-         *      exibe mensagem de erro, reseta linha de diálogo atual
-         * -se entrada for < 0 ou > quantidade de opções:
-         *      exibe mensagem de erro, reseta linha de diálogo atual
+         *    -Se entrada não for um número:
+         *    Exibe mensagem de erro, reseta linha de diálogo atual.
+         * 
+         *    -Se entrada for < 0 ou > quantidade de opções:
+         *     Exibe mensagem de erro, reseta linha de diálogo atual.
          *
-         * -se entrada do usuário não for 0:
-         *      verifica qual foi a opção selecionada
-         *      muda o estado do diálogo baseado na opção selecionada
-         *      pega a linha de dialogo nova()
-         *      atualiza a quantidade de opções baseado na linha nova
-         *      verifica se a linha de dialogo não possui nenhuma flag
+         *    -Se entrada do usuário não for 0:
+         *      Verifica qual foi a opção selecionada;
+         *      Muda o estado do diálogo baseado na opção selecionada;
+         *      Pega a linha de dialogo nova();
+         *      Atualiza a quantidade de opções baseado na linha nova;
+         *      Verifica se a linha de dialogo não possui nenhuma flag.
          *
          * -exibe o texto da linha de diálogo atual
          *
@@ -313,9 +319,12 @@ public class Main
 
 
         String flag = "";
-
+        
+        //1)
         pegarLinhaDeDialogo();  
 
+        //2)
+        //Se entrada não for um número:
         try
         {
             Integer.parseInt(entrada);
@@ -332,7 +341,8 @@ public class Main
         }
 
         int qntDeOpcoes = Integer.parseInt(linhaAtual.split(DIVISOR_DE_DIALOGOS)[2]);
-
+ 
+        //Se entrada for < 0 ou > quantidade de opções:
         if(Integer.parseInt(entrada) < 0 || Integer.parseInt(entrada) > qntDeOpcoes)
         {
             System.out.print("\033[H\033[2J");
@@ -343,7 +353,8 @@ public class Main
             atualizarDialogo("0");
             return;
         }
-
+        
+        //Se entrada do usuário não for 0:
         if(!entrada.equals("0"))
         {
             String opcoes = linhaAtual.split(DIVISOR_DIALOGO_OPCAO)[1];
@@ -378,16 +389,22 @@ public class Main
     static void atualizar() throws Exception
     {
         /*
-         * pega a entrada de usuário
+         * FUNÇÃO ATUALIZAR:
+         * 
+         * 1) Pega a entrada de usuário
          *
-         * atualiza o dialogo baseado na entrada do usuário()
+         * 2) Atualiza o dialogo (Chamando a Função de Atualizar o Diálogo) o dialogo baseado na entrada do usuário();.
          *
-         * se o estado do diálogo não for negativo:
-         *      atualiza novamente
+         * 3) Se o estado do diálogo não for negativo:
+         *    -Atualiza novamente.
          */
+        //1
         String entrada = input.nextLine();
+
+        //2
         atualizarDialogo(entrada);
 
+        //3
         if(estadoDialogo >= 0)
         {
             atualizar();
@@ -398,19 +415,37 @@ public class Main
     static void iniciarLoopDeDialogo() throws Exception
     {
         /*
-         * atualiza a linha de dialogo()
+         * FUNÇÃO QUE INICIA O LOOP DO JOGO:
          *
-         * atualiza()
+         * 1) AtuaLiza a linha de dialogo chamando a função atualizarDialogo.
+         * 
+         * 2) Chama a função atualizar();.
          */
+
+        //1
         atualizarDialogo("0");
+
+        //2
         atualizar();
     }
 
 
     static void lerInput(String alvo, int linhaAlvo, String textoDeErro) throws Exception
     {  
+        /*
+         * FUNÇÃO LER INPUT
+         * 
+         * 1) Após ser exibido um desafio, pedirá para que o usuário digite a resposta do desafio
+         *    -Se a resposta foi igual ao alvo da questão (O Alvo foi definido na função interpretarFlag). O Estado do Diálogo será atualizado para a Linha Alvo,
+         *    Significa que o Usuário Acertou.
+         * 
+         * 2) Se o usuário errar, será exibido o textoDeErro (O textoDeErro foi definido na função interpretarFlag).
+         * 
+         * 3)Isto se reperitá enquanto o usuário não acertar a questão (Não possuindo limite de respostas erradas).
+         */
         boolean acertou = false;
-
+        
+        //1)
         do
         {
             System.out.print("digite: ");
@@ -426,6 +461,7 @@ public class Main
             }
             atualizarDialogo("0");
         }
+        //3)
         while(!acertou);
     }
 
@@ -433,8 +469,14 @@ public class Main
     static void interpretarFlag(String flag) throws Exception
     {
         /*
-         * roda um switch case com a flag a ser interpretada
+         * 1) Roda um switch case com a flag a ser interpretada:
+         *    -Cada Flag tem um nome referente ao seu Desafio. Desafios diferentes aparecem em momentos diferentes do jogo.
+         *    -Cada Desafio tem um nome. 
+         *    -Nesta função, cada Desafio programado informará a função lerInput as informações de seus:
+         *    alvo (Resposta), linhaAlvo (Próxima linha caso acerte o desafio) e, Texto de erro (Caso jogador erre).
          */
+
+         //1
         switch (flag)
         {
             case "flush":
