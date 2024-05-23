@@ -40,7 +40,7 @@ public class Main
         33;*Talvez você devesse tentar converter este número. Você ainda tem o papel e o lápis.;0;/0>0/puzzleJanela
         34;*Vejo o meu carro, ele acertou em cheio uma arvore na floresta e está completamente destruído;1;/[continuar]>350
         350;DESCONHECIDA: Chovia tanto naquele dia... a senhorita perdeu o controle de seu carro, que saiu da estrada.;2;/A senhora por acaso é a morte?>36;Eu estou no Inferno?>36
-        36;DESCONHECIDA: Hahahaha a Senhorita faz muitas perguntas, assim como todos. Não, você não está no Inferno. E eu?  as pessoas me chamam de diversos nomes, eu não sou “A Morte”, eu nunca matei ninguém. Estou aqui somente para te recepcionar. Você pode me chamar de {morte}. ;1;/ [continuar] >37
+        36;DESCONHECIDA: Hahahaha a Senhorita faz muitas perguntas, assi m como todos. Não, você não está no Inferno. E eu?  as pessoas me chamam de diversos nomes, eu não sou “A Morte”, eu nunca matei ninguém. Estou aqui somente para te recepcionar. Você pode me chamar de {morte}. ;1;/ [continuar] >37
         37;{morte}: Susan, querida, não chore. Ambas sabemos que foi um acidente. Você não entrou de carro naquela floresta de propósito. Por mais que aquela tenha sido a sua vontade naquele momento, sabemos que, no fundo, não aquela sua intenção. ;3;/Como assim naquele momento ?>38;Eu dirigi rápido de propósito?>38;Não consigo me lembrar de nada dos últimos meses.>38
         38; {morte}: Susan, venha até mim...;1;/[continuar]>39
         39; Ela se levantou da cadeira e se dirigiu para outro cômodo da casa.;1;/[continuar]>40
@@ -96,6 +96,13 @@ public class Main
         100;hora do input! dona morte se chama {morte}!;0;/0>0/input
         """;
 
+    static String possiveisCoresDoGato[] = {
+         "laranja",
+         "cinza",
+         "preto",
+         "branco",
+         "preto e branco"
+    };
     static String possiveisNomesDaMorte[] = {
         "Margot",
         "Maria",
@@ -104,6 +111,8 @@ public class Main
         "Nala"
     };
     static String nomeDaMorte = "";
+
+    static String corDoGato = "";
 
     static String nomeDoPlayer = "Susan";
 
@@ -125,32 +134,43 @@ public class Main
         /*
          * VOID MAIN:
          *
-         * -inicializa o random
-         * -inicializa o scanner
+         * 1)Inicializa o Random.
+         * 2)Inicializa o Scanner.
          *
-         * -escolhe o nome da morte
-         * -aplica o nome da morte no texto bruto
+         * 3)Escolhe o nome da morte.
+         * 4)Escolhe a cor do gato.
+         * 5)Chama a função "formatarTextoBruto" para aplicar o nome da morte e a cor do gato no texto bruto.
          *
-         * -inicia o menu
+         * 6)Inicia o menu de opções do jogo.
          */
 
-
+        //1)
         rand = new Random();
+        //2)
         input = new Scanner(System.in);
 
-
+        //3)
         nomeDaMorte = possiveisNomesDaMorte
         [
             rand.nextInt(possiveisNomesDaMorte.length)
         ];
+         
+        //4)
+        corDoGato = possiveisCoresDoGato
+        [
+            rand.nextInt(possiveisCoresDoGato.length)
+        ];
 
+        //5)
         formatarTextoBruto();
-
+        
+        //6)
         iniciarMenu();
     }
 
     static void formatarTextoBruto()
     {
+        textoBruto = textoBruto.replace("{gato}", corDoGato);
         textoBruto = textoBruto.replace("{morte}", nomeDaMorte);
         textoBruto = textoBruto.replace("{player}", nomeDoPlayer);
     }
@@ -160,25 +180,25 @@ public class Main
         /*
          * FUNÇÃO INICIAR MENU:
          *
-         * enquanto o menu não for fechado:
+         * Enquanto o Menu não for fechado:
          *  
-         * -estado padrão:
-         *      limpa o console, exibe o titulo do jogo e guarda input do usuário
+         * 1)Estado Padrão:
+         *      ("case 0") limpa o console, Exibe o titulo do jogo e, as Opções (4 Opções).
          *
-         * -se o jogador apertar 1:
-         *      exibe as instruções do jogo e aguarda um input para voltar ao estado inicial
+         * 2)Caso a opção (Input do Usuário) seja 1:
+         *      Exibe as instruções do jogo e aguarda um Input para voltar ao estado inicial.
          *
-         * -se o jogador apertar 2:
-         *      fecha o menu e inicia o jogo
+         * 3)Caso a opção (Input do Usuário) seja 2:
+         *      Fecha o menu e chama a função iniciarLoopDeDialogo (Função que Inicializa o Jogo).
          *
-         * -se o jogador apertar 3:
-         *      exibe os créditos do jogo e aguarda um input para voltar ao estado inicial
+         * 4)Caso a opção (Input do Usuário) seja 3:
+         *      Exibe os Créditos do jogo e aguarda um Input para voltar ao estado inicial.
          *  
-         * -se o jogador apertar 4:
-         *      fecha o scanner, fecha o menu e fecha o jogo
+         * 5)Caso a opção (Input do Usuário) seja 4:
+         *      Fecha o Scanner, fecha o Menu e fecha o Jogo.
          */
 
-
+        //1)
         String estado = "0";
         boolean fechado = false;
 
@@ -186,31 +206,34 @@ public class Main
         {
             switch (estado)
             {
-                case "0":   //estado inicial
+                case "0":   //Estado Inicial (0).
                     System.out.print("\033[H\033[2J");
                     System.out.flush();
 
 
-                    System.out.println("\nBEM VINDO AO JOGO!");
-                    System.out.println("\n1) instruções\n2) jogar\n3) creditos\n4) sair");
+                    System.out.println("\nSeja Bem Vindo ao Limbo!");
+                    System.out.println("\n1) Instruções\n2) Novo Jogo\n3) Créditos\n4) Sair");
 
 
                     estado = input.nextLine();
                     break;
-               
+                
+                //2)    
                 case "1": //estado instruções
-                    System.out.println("\nLeia os textos, digite os numeros de 1-9 para selecionar a opção de diálogo escolhida");
+                    System.out.println("\nLeia os textos, digite os numeros de 1-9 para selecionar a opção de diálogo escolhida. ");
 
 
                     input.nextLine();
                     estado = "0";
                     break;
-               
+
+                //3)
                 case "2": //estado jogar
                     iniciarLoopDeDialogo();
                     fechado = true;
                     break;
-               
+                
+                //4)
                 case "3": //estado créditos
                     System.out.println("\nfeito por: João Pedro Kraschowetz Souza e Maria Fernanda Silva Leite");
 
@@ -218,7 +241,8 @@ public class Main
                     input.nextLine();
                     estado = "0";
                     break;
-               
+
+                //5)
                 default: //estado sair
                     fechado = true;
                     input.close();
@@ -226,6 +250,7 @@ public class Main
             }
         }
         while(!fechado);
+
     }
 
     static void pegarLinhaDeDialogo()
@@ -255,8 +280,9 @@ public class Main
             }
         }
         linhaAtual = "0;erro! nao foi possivel achar a linha de dialogo (" + estadoDialogo +");1;/okay>0";
-    }
 
+    }
+    
     static void atualizarDialogo(String entrada) throws Exception
     {
         /*
