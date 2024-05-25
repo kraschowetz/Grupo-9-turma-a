@@ -356,17 +356,30 @@ public class Main
         
         //Se entrada do usuário não for 0:
         if(!entrada.equals("0"))
-        {
+        {   
+            //Aqui, estamos dividindo os diálogos do que interessa no momento (Opções).
+            //Essa linha considera só o que vier depois da barra ("/").
+            //"[1]" Sendo então o texto que vem após a barra.
             String opcoes = linhaAtual.split(DIVISOR_DIALOGO_OPCAO)[1];
+            //Int Opção Selecionada será a entrada do usuário -1 (Porque o Java entende o 0 como número existente).
             int opcaoSelecionada = Integer.parseInt(entrada) - 1;
+            //As "SubOpções serão definidas de acordo com a divisão do texto dentro da int Opções.
+            //(Divisão Definida por ";").
             String subOpcao = opcoes.split(DIVISOR_DE_DIALOGOS)[opcaoSelecionada];
+            //Aqui será definida a nova linha de diálogo após a opção ser definida.
+            //A novo estado será definido com a numeração que se encontra no texto após o ">".
             estadoDialogo = Integer.parseInt(subOpcao.split(">")[1]);
+            //Chama a função pegarLinhaDeDialogo(); (Somente pra verificar se não da erro.)
             pegarLinhaDeDialogo();
+            //A Quantidade de Opções Será Definida pelo número escrito entre dois ";"
             qntDeOpcoes = Integer.parseInt(linhaAtual.split(DIVISOR_DE_DIALOGOS)[2]);
 
-
+            //As instruções desta linha serão válidas para os Desafios
+            //Se a quantidade de divisores da minha linha atual for > 2, saberá que se trata de um desafio.
             if(linhaAtual.split("/").length > 2)
             {
+                //O Nome do Desafio se encontrará na terceira posição após a divisão por barra "/".
+                //a String flag receberá o Nome do Desafio.
                 flag = linhaAtual.split("/")[2];
             }
         }
