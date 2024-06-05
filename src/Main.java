@@ -1,4 +1,6 @@
-﻿import java.util.Scanner;
+﻿package src;
+
+import java.util.Scanner;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
@@ -168,14 +170,14 @@ public class Main
         iniciarMenu();
     }
 
-    static void formatarTextoBruto()
+    public static void formatarTextoBruto()
     {
         textoBruto = textoBruto.replace("{gato}", corDoGato);
         textoBruto = textoBruto.replace("{morte}", nomeDaMorte);
         textoBruto = textoBruto.replace("{player}", nomeDoPlayer);
     }
 
-    static void iniciarMenu() throws Exception
+    public static void iniciarMenu() throws Exception
     {
         /*
          * FUNÇÃO INICIAR MENU:
@@ -253,7 +255,7 @@ public class Main
 
     }
 
-    static void pegarLinhaDeDialogo()
+    static boolean pegarLinhaDeDialogo(int alvo)
     {
         /*
          * FUNÇÃO PEGAR LINHA DE DIÁLOGO:
@@ -276,19 +278,20 @@ public class Main
         //2)
         for(String l : linhas)
         {
-            if(Integer.parseInt(l.split(DIVISOR_DE_DIALOGOS)[0]) == estadoDialogo)
+            if(Integer.parseInt(l.split(DIVISOR_DE_DIALOGOS)[0]) == alvo)
             {
                 linhaAtual = l;
-                return;
+                return true;
             }
         }
         //3)
-        linhaAtual = "0;erro! nao foi possivel achar a linha de dialogo (" + estadoDialogo +");1;/okay>0";
+        linhaAtual = "0;erro! nao foi possivel achar a linha de dialogo (" + alvo +");1;/okay>0";
+        return false;
 
     }
 
 
-    static void atualizarDialogo(String entrada) throws Exception
+    public static void atualizarDialogo(String entrada) throws Exception
     {
         /*
          * FUNÇÃO ATUALIZAR DIÁLOGO:
@@ -321,7 +324,7 @@ public class Main
         String flag = "";
         
         //1)
-        pegarLinhaDeDialogo();  
+        pegarLinhaDeDialogo(estadoDialogo);  
 
         //2)
         //Se entrada não for um número:
@@ -370,7 +373,7 @@ public class Main
             //A novo estado será definido com a numeração que se encontra no texto após o ">".
             estadoDialogo = Integer.parseInt(subOpcao.split(">")[1]);
             //Chama a função pegarLinhaDeDialogo(); (Somente pra verificar se não da erro.)
-            pegarLinhaDeDialogo();
+            pegarLinhaDeDialogo(estadoDialogo);
             //A Quantidade de Opções Será Definida pelo número escrito entre dois ";"
             qntDeOpcoes = Integer.parseInt(linhaAtual.split(DIVISOR_DE_DIALOGOS)[2]);
 
@@ -399,7 +402,7 @@ public class Main
     }
 
 
-    static void atualizar() throws Exception
+    public static void atualizar() throws Exception
     {
         /*
          * FUNÇÃO ATUALIZAR:
@@ -425,7 +428,7 @@ public class Main
     }
 
 
-    static void iniciarLoopDeDialogo() throws Exception
+    public static void iniciarLoopDeDialogo() throws Exception
     {
         /*
          * FUNÇÃO QUE INICIA O LOOP DO JOGO:
@@ -443,7 +446,7 @@ public class Main
     }
 
 
-    static void lerInput(String alvo, int linhaAlvo, String textoDeErro) throws Exception
+    public static void lerInput(String alvo, int linhaAlvo, String textoDeErro) throws Exception
     {  
         /*
          * FUNÇÃO LER INPUT
@@ -479,7 +482,7 @@ public class Main
     }
 
 
-    static void interpretarFlag(String flag) throws Exception
+    public static void interpretarFlag(String flag) throws Exception
     {
         /*
          * 1) Roda um switch case com a flag a ser interpretada:
@@ -519,7 +522,7 @@ public class Main
     }
 
 
-    static void digitar(String texto) throws InterruptedException
+    public static void digitar(String texto) throws InterruptedException
     {
         /*
          * VOID DIGITAR:
@@ -539,7 +542,7 @@ public class Main
     }
 
 
-    static void exibirOpcoes(String texto) throws Exception
+    public static void exibirOpcoes(String texto) throws Exception
     {
         /*
          * VOID EXIBIR OPÇÕES:
@@ -560,4 +563,4 @@ public class Main
         }
         System.out.print("\n");
     }
-}
+    }
