@@ -62,13 +62,13 @@ public class Main
         53; {morte}: Agora vá, se apresse.;1;/[continuar]>54
         54; *Ela toca em minha testa.;1;/[continuar]>99
         99; CAPITULO 2 ;1;/[continuar]>1000
-        1000; *Acordo dentro de meu carro, minha cabeça dói muito, mas não tem nenhum ferimento nela. O Som do alarme está muito alto e não consigo desligá-lo.;1;/[continuar]>101
+        1000; *Acordo dentro de meu carro, minha cabeça dói muito, tem nenhum ferimento nela. O Som do alarme está muito alto e não consigo desligá-lo.;1;/[continuar]>101
         101; *Não consigo me lembrar de nada dos últimos dias. Exceto do meu último sonho, eu bati o carro.;1;/Mas como isso foi acontecer?>300
-        300; *Observo o porta luvas do Carro, ele esta emprerrado. Vejo também que sobre a porta esta riscado o número 0001.;1;/[continuar]?>301
+        300; *Observo o porta luvas do Carro, ele esta emprerrado. Vejo também que sobre a porta esta riscado o número 0001.;1;/[continuar]>301
         301; *Preciso do meu celular para ligar para emergencia ou para a Agatha. Porém o número 0001 já é um Número em Binario. Correto ?;2;/[sim]>302;[não]>305
         302; *O porta luvas se abre, tem diversas chamadas perdidas de Agatha em meu telefone. Ela parece desesperada e me pede desculpas diversas vezes por mensagens;1;/Mas, desculpas por quê?>303
-        303; *O telefone tem 2% de Bateria, é inutil tentar ligar agora.;1;/[continuar]?>102
-        305; *O porta luvas permanece emprerrado;1;/[continuar]?>102
+        303; *O telefone tem 2% de Bateria, é inutil tentar ligar agora.;1;/[continuar]>102
+        305; *O porta luvas permanece emprerrado;1;/[continuar]>102
         102; *Olho para o banco direito. Vejo a caixa que Margot me entregou. Tem um Bilhete ao lado dela. A Caixa tem um sistema de senha de 4 dígitos nela.;1;/[continuar]>103
         103; *O bilhete diz PENSE COMO UM COMPUTADOR. Na parte de trás contém o número 11.;1;/[continuar]>104
         104; *Portanto, os números do bilhete são números decimais. Eles não cabem no leitor da caixa. Quais números eu deveria inserir?.;0;/0>0/puzzleCaixa
@@ -80,26 +80,24 @@ public class Main
         203; *Não me lembro de ter sido de meu carro e nem de como fiz o caminho até em casa. Me lembro apenas de meu ultimo sonho, aquele com a senhora {morte};1;/[continuar]>204
         204; *Me levanto e me dirijo logo ao quarto de minha filha...;1;/[continuar]>206
         206; *O Quarto dela esta vazio. Você observa ao redor ?;2;/[sim]>207;[não]>209
-        207; *Ele está vazio, ela não está aqui e todas as coisas dela sumiram. O guarda-roupas dela está completamente limpo, as estantes de brinquedos também. Até o tapete e as cortinas foram levados.;1;/[continuar]>209
-        209; *Me pergunto quem esvaziou este quarto ... ;1;/[continuar]>210
+        207; *Ele está vazio, ela não está aqui e todas as coisas dela sumiram. O guarda-roupas dela está completamente limpo, as estantes de brinquedos também. Até o tapete e as cortinas foram levados.;1;/Me pergunto quem esvaziou este quarto...>210
         210; *Minha esposa também não está em casa.;1;/[continuar]>211
         211; Você se dirige até a cozinha ou seu quarto ?;2;/[cozinha]>212;[quarto]>213
         212; A comida da geladeira está toda estragada, parece que os cômodos não são limpos a muitos dias. Eu me pergunto onde as duas estão.;1;/[ir ao quarto]>213
         213; *Volto para meu quarto, preciso pegar novas roupas para substituir as minhas rasgadas. Tem um espelho ao lado da porta. Você se observa nele ?;2;/[sim]>214;[não]>215 
         214; *Tem um curativo em minha cabeça e ela já não dói mais. Me observo no espelho próximo a estante e me vejo com as mesmas roupas que vestia no sonho que tive com aquela velha senhora, a {morte}.;1;/[continuar]>215
-        215; *Mexo em meu bolso antes de colocar novas roupas e percebo que ainda possuo o mesmo pedaço de papel e o mesmo lápis. Me pergunto como isso é possível ;1;/[continuar]>216
-        216; *Aquilo foi apenas um sonho, correto ? ;1;/[continuar]>217
+        215; *Mexo em meu bolso antes de colocar novas roupas e percebo que ainda possuo o mesmo pedaço de papel e o mesmo lápis.;1;/Me pergunto, como isso é possível?>217;Aquilo foi apenas um sonho, correto?>217
         217; *Observo meu gaveteiro de roupas, tem uma pequena fechadura na primeira gaveta com entrada para 4 números. Observo que no meu quadro de casamento está riscado o número 12. Qual número eu deveria inserir na fechadura ?;0;/0>0/puzzleGaveteiro
         218; *A gaveta se abre. Tem varios objetos junto a uma carta.;1;/[continuar]>219
         219; *A carta foi escrita com a letra de minha esposa. Ela diz: ;1;/[continuar]>220
         220; Querida Susan, Me perdoe por te deixar sem me despedir, eu estava em desespero por ficar dentro deste apartamento, uma dor rasga meu peito todas as vezes em que eu observo os cômodos. Quando você ler esta carta, saiba que estou na casa de minha mãe. Sei o quão cruel fui por te deixar sozinha neste momento, mas eu não pude, não consigo te encarar nos olhos depois de tudo. Todos dizem que a culpa não foi nossa, mas no fundo, não posso deixar de acreditar que somos sim, culpadas. Sempre sua, Agnes. ;1;/[continuar]>221
-        221; *No momento em que terminei de ler a carta, senti meu corpo todo se arrepiar. Não consigo me lembrar do que fizemos, somos culpadas de que ? ;1;/[continuar]>222
-        222; *Cai em lagrimas após sentar na cama, foi quando ouvi um ruido na porta da varanda, algo esta arranhando a porta como se quisesse entrar ;1;/[continuar]>223
+        221; *No momento em que terminei de ler a carta, senti meu corpo todo se arrepiar. Não consigo me lembrar do que fizemos. ;1;/Fomos culpadas pelo que?>222
+        222; *Cai em lagrimas após sentar na cama, foi quando ouvi um ru2ido na porta da varanda, algo esta arranhando a porta como se quisesse entrar ;1;/[continuar]>223
         223; *Abro a porta e um gato {gato} entra em meu quarto. Ele é da mesma cor do gatinho de madeira que estava na caixa de {morte};1;/[continuar]>224
-        224; *Ele tem olhos grandes e amarelos. Me encara como se quisse me comunicar algo.;1;/[continuar]>225
+        224; *Ele tem olhos grandes e amarelos. Me encara como se quisse me comunicar algo.;1;/[continuar]>226
         226; *Ele mia e se dirige para o corredor, como se disesse para eu segui-lo. Você o acompanha ? ;2;/[sim]>227;[não]>227
         227; Continua...;1;/[continuar]>228
-        228; Muito Obrigada Por jogar! Maria Fernanda Silva Leite e João Pedro Krachowetz
+        228; Muito Obrigada Por jogar! Maria Fernanda Silva Leite e João Pedro Krachowetz;1;/[continuar]>228
         100;hora do input! dona morte se chama {morte}!;0;/0>0/input
         """;
 
@@ -128,7 +126,7 @@ public class Main
     static Scanner input;
     static Random rand;
     static String linhaAtual;
-    static int estadoDialogo = 99;
+    static int estadoDialogo = 223;
 
     static final int TEMPO_DE_DIALOGO = 15;
     static final int INTERVALO_DE_OPCOES = 40;
