@@ -26,7 +26,7 @@ public class Main
         17;*Você vai até a casa?;2;/sim>18;não>14
         18;*Tem um pedaço de papel preso a porta, junto a um lápis. Na porta, a campainha está quebrada. Você tenta bater na porta, mas parece estar vazia. Na porta está riscado na porta o número 5 Acima da Frase 'PENSE COMO UM COMPUTADOR';1;/[continuar]>19
         19;*Você se lambra das aulas que teve de programação durante a Faculdade. Lá você aprendeu que que o computador pensa em binário, que é a linguagem dos computadores digitais.;1;/[continuar]>20
-        20;*Como você escreveria o número 5, na base binária, neste papel?;0;/0>0/puzzlePortaPrologo
+        20;*Como você escreveria o número 5, na base binária, neste papel?;0;0>0//puzzlePortaPrologo
         21;*a porta se abre antes de você tocar nela;1;/[continuar]>22
         22;Desconhecida: Entre, jovem.;1;/Olá, com licença [entrar na casa]>23
         23;Desconhecida: Você é {player}, correto?;2;/sim, sou eu>26;[olhar em volta]>24
@@ -63,12 +63,17 @@ public class Main
         54; *Ela toca em minha testa.;1;/[continuar]>99
         99; CAPITULO 2 ;1;/[continuar]>1000
         1000; *Acordo dentro de meu carro, minha cabeça dói muito, mas não tem nenhum ferimento nela. O Som do alarme está muito alto e não consigo desligá-lo.;1;/[continuar]>101
-        101; *Não consigo me lembrar de nada dos últimos dias. Exceto do meu último sonho, eu bati o carro. Mas como isso foi acontecer?.;1;/[continuar]>102
-        102; *Olho para o lado direito. Vejo a caixa que Margot me entregou. Tem um Bilhete ao lado dela. A Caixa tem um sistema de senha de 4 dígitos nela.;1;/[continuar]>103
+        101; *Não consigo me lembrar de nada dos últimos dias. Exceto do meu último sonho, eu bati o carro.;1;/Mas como isso foi acontecer?>300
+        300; *Observo o porta luvas do Carro, ele esta emprerrado. Vejo também que sobre a porta esta riscado o número 0001.;1;/[continuar]?>301
+        301; *Preciso do meu celular para ligar para emergencia ou para a Agatha. Porém o número 0001 já é um Número em Binario. Correto ?;2;/[sim]>302;[não]>305
+        302; *O porta luvas se abre, tem diversas chamadas perdidas de Agatha em meu telefone. Ela parece desesperada e me pede desculpas diversas vezes por mensagens;1;/Mas, desculpas por quê?>303
+        303; *O telefone tem 2% de Bateria, é inutil tentar ligar agora.;1;/[continuar]?>102
+        305; *O porta luvas permanece emprerrado;1;/[continuar]?>102
+        102; *Olho para o banco direito. Vejo a caixa que Margot me entregou. Tem um Bilhete ao lado dela. A Caixa tem um sistema de senha de 4 dígitos nela.;1;/[continuar]>103
         103; *O bilhete diz PENSE COMO UM COMPUTADOR. Na parte de trás contém o número 11.;1;/[continuar]>104
         104; *Portanto, os números do bilhete são números decimais. Eles não cabem no leitor da caixa. Quais números eu deveria inserir?.;0;/0>0/puzzleCaixa
         105; *A caixa se abre no instante em que eu insiro o último número. Tem um pequeno gato {gato} esculpido em madeira.;1;/[continuar]>106
-        106; *Ele se parece com um gato que passeia pelo prédio onde eu moro, me pergunto o que ele representa.;1;/[continuar]>107
+        106; *Ele se parece com um gato que passeia pelo prédio onde eu moro;1;/Me pergunto o que ele representa.>107
         107; *Posso escutar alguns sons de sirenes se aproximando. Tem sangue escorrendo pelo meu rosto. Me sinto tonta, como se estivesse prestes a desmaiar novamente...;1;/[continuar]>200
         200; CAPITULO 3 ;1;/[continuar]>202
         202; *Eu apaguei após pegar o pequeno gato de madeira e acordei em meu apartamento.;1;/[continuar]>203
@@ -107,10 +112,12 @@ public class Main
     };
     static String possiveisNomesDaMorte[] = {
         "Margot",
-        "Maria",
+        "Helena",
         "Elise",
         "Diana",
-        "Nala"
+        "Elisabeth",
+        "Maria",
+        "Judite"
     };
     static String nomeDaMorte = "";
 
@@ -121,7 +128,7 @@ public class Main
     static Scanner input;
     static Random rand;
     static String linhaAtual;
-    static int estadoDialogo = 105;
+    static int estadoDialogo = 99;
 
     static final int TEMPO_DE_DIALOGO = 15;
     static final int INTERVALO_DE_OPCOES = 40;
@@ -263,7 +270,7 @@ public class Main
          * 1) Transforma o texto atual em uma lista de Strings. (Ele entente o "\n" como o ponto de divisão do texto em linhas).
          *
          * 2) Para cada uma das linhas da Lista:
-         *      -Verifica se o 1° elemento da linha verificada antes do ";" (DIVISOR) == estado do diálogo.
+         *      -Verifica se o 1° elemento da linha verificada antes do ";" (DIVISOR) == ALVO.
          *
          *      -Se for: coloca a linha de texto sendo processada na variavel "linha atual" e fecha a função.
          *      
@@ -343,8 +350,8 @@ public class Main
             return;
         }
 
+        //A Quantidade de Opções Será Definida pelo número escrito entre dois ";"
         int qntDeOpcoes = Integer.parseInt(linhaAtual.split(DIVISOR_DE_DIALOGOS)[2]);
- 
         //Se entrada for < 0 ou > quantidade de opções:
         if(Integer.parseInt(entrada) < 0 || Integer.parseInt(entrada) > qntDeOpcoes)
         {
@@ -364,16 +371,21 @@ public class Main
             //Essa linha considera só o que vier depois da barra ("/").
             //"[1]" Sendo então o texto que vem após a barra.
             String opcoes = linhaAtual.split(DIVISOR_DIALOGO_OPCAO)[1];
+
             //Int Opção Selecionada será a entrada do usuário -1 (Porque o Java entende o 0 como número existente).
             int opcaoSelecionada = Integer.parseInt(entrada) - 1;
-            //As "SubOpções serão definidas de acordo com a divisão do texto dentro da int Opções.
+
+            //As "SubOpções" serão definidas de acordo com a divisão do texto dentro da int Opções.
             //(Divisão Definida por ";").
             String subOpcao = opcoes.split(DIVISOR_DE_DIALOGOS)[opcaoSelecionada];
+
             //Aqui será definida a nova linha de diálogo após a opção ser definida.
-            //A novo estado será definido com a numeração que se encontra no texto após o ">".
+            //A novo estado será definido de acordo com a numeração que se encontra no texto após o ">".
             estadoDialogo = Integer.parseInt(subOpcao.split(">")[1]);
+
             //Chama a função pegarLinhaDeDialogo(); (Somente pra verificar se não da erro.)
             pegarLinhaDeDialogo(estadoDialogo);
+
             //A Quantidade de Opções Será Definida pelo número escrito entre dois ";"
             qntDeOpcoes = Integer.parseInt(linhaAtual.split(DIVISOR_DE_DIALOGOS)[2]);
 
@@ -386,11 +398,14 @@ public class Main
                 flag = linhaAtual.split("/")[2];
             }
         }
-
+        
+        //Informa a função Digitar
         digitar("\n" + linhaAtual.split(DIVISOR_DE_DIALOGOS)[1] + "\n");
-
+        
+        //KRASCHOWETZ
         for(int i = 0; i < qntDeOpcoes; i++)
         {
+         
             String[] opcoes = linhaAtual.split(DIVISOR_DIALOGO_OPCAO)[1].split(DIVISOR_DE_DIALOGOS);
             exibirOpcoes((i + 1) +") " + opcoes[i].split(">")[0]);
         }
@@ -453,7 +468,7 @@ public class Main
          * 
          * 1) Após ser exibido um desafio, pedirá para que o usuário digite a resposta do desafio
          *    -Se a resposta foi igual ao alvo da questão (O Alvo foi definido na função interpretarFlag). O Estado do Diálogo será atualizado para a Linha Alvo,
-         *    Significa que o Usuário Acertou.
+         *    -Significa que o Usuário Acertou.
          * 
          * 2) Se o usuário errar, será exibido o textoDeErro (O textoDeErro foi definido na função interpretarFlag).
          * 
@@ -471,6 +486,7 @@ public class Main
                 estadoDialogo = linhaAlvo;
                 acertou = true;
             }
+            //2
             else
             {
                 System.out.println(textoDeErro);
@@ -527,15 +543,18 @@ public class Main
         /*
          * VOID DIGITAR:
          *  
-         * -para cada caractere no texto a ser digitado:
-         *      -imprimir caractere
-         *      -esperar TEMPO_DE_DIALGO milisegundos
+         * 1) para cada caractere no texto a ser digitado:
+         * 
+         * 2) imprimir caractere;
+         * 3) esperar TEMPO_DE_DIALGO milisegundos.
          */
 
-
+        //1
         for(char c : texto.toCharArray())
         {
+            //2
             System.out.print(c);
+            //3
             TimeUnit.MILLISECONDS.sleep(TEMPO_DE_DIALOGO);
         }
         System.out.print("\n");
