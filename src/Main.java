@@ -227,7 +227,12 @@ public class Main
                 
                 //2)    
                 case "1": //estado instruções
-                    System.out.println("\nLeia os textos, digite os numeros de 1-9 para selecionar a opção de diálogo escolhida. ");
+                    System.out.println("\n1 Leia os textos, digite os numeros de 1-9 para selecionar a opção de diálogo escolhida.");
+                    System.out.println("\n2 Este jogo requer que você aprenda a converter números Decimais em Binários para prosseguir na história.");
+                    System.out.println("\n-A conversão de decimal para binário (ou seja, da base 10 para a base 2), consiste em dividir progressivamente o valor decimal por 2, obtendo-se um resultado e um resto. o resultado em cada iteração terá sempre o valor de 0 ou 1");
+                    System.out.println("\n-Para resto > 0 = Digito 1; Para resto = 0 = Digito 0.");
+                    System.out.println("\n-Ao final, basta escrever o resultado de cada divisão de trás para frente.");
+                    System.out.println("\nBoa Sorte!");
 
 
                     input.nextLine();
@@ -381,7 +386,8 @@ public class Main
             //A novo estado será definido de acordo com a numeração que se encontra no texto após o ">".
             estadoDialogo = Integer.parseInt(subOpcao.split(">")[1]);
 
-            //Chama a função pegarLinhaDeDialogo(); (Somente pra verificar se não da erro.)
+            //Chama a função pegarLinhaDeDialogo();
+            //Aqui, ele informará á função pegarLinhaDeDialogo o novo estado do diálogo.
             pegarLinhaDeDialogo(estadoDialogo);
 
             //A Quantidade de Opções Será Definida pelo número escrito entre dois ";"
@@ -400,7 +406,6 @@ public class Main
         //Informa a função Digitar
         digitar("\n" + linhaAtual.split(DIVISOR_DE_DIALOGOS)[1] + "\n");
         
-        //KRASCHOWETZ
         for(int i = 0; i < qntDeOpcoes; i++)
         {
          
