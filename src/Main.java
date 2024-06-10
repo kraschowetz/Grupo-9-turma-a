@@ -24,8 +24,8 @@ public class Main
         15;*Você ve o seu rosto... assim como você se lembra ser...;1;/[continuar]>14
         16;*Tem uma casa no final da rua, as luzes estão acessas. Da pra ouvir uma melodia vinda de um piano, o som parece vir daquela casa;1;/...>17
         17;*Você vai até a casa?;2;/sim>18;não>14
-        18;*Tem um pedaço de papel preso a porta, junto a um lápis. Na porta, a campainha está quebrada. Você tenta bater na porta, mas parece estar vazia. Na porta está riscado na porta o número 5 Acima da Frase 'PENSE COMO UM COMPUTADOR';1;/[continuar]>19
-        19;*Você se lambra das aulas que teve de programação durante a Faculdade. Lá você aprendeu que que o computador pensa em binário, que é a linguagem dos computadores digitais.;1;/[continuar]>20
+        18;*Tem um pedaço de papel preso a porta, junto a um lápis. Na porta, a campainha está quebrada. Você tenta bater na porta, mas parece estar vazia. Na porta está riscado o número 5 Acima da Frase 'PENSE COMO UM COMPUTADOR';1;/[continuar]>19
+        19;*Você se lembra das aulas que teve de programação durante a Faculdade. Lá você aprendeu que que o computador pensa em binário, que é a linguagem dos computadores digitais.;1;/[continuar]>20
         20;*Como você escreveria o número 5, na base binária, neste papel?;0;0>0//puzzlePortaPrologo
         21;*a porta se abre antes de você tocar nela;1;/[continuar]>22
         22;Desconhecida: Entre, jovem.;1;/Olá, com licença [entrar na casa]>23
@@ -42,7 +42,7 @@ public class Main
         33;*Talvez você devesse tentar converter este número. Você ainda tem o papel e o lápis.;0;/0>0/puzzleJanela
         34;*Vejo o meu carro, ele acertou em cheio uma arvore na floresta e está completamente destruído;1;/[continuar]>350
         350;DESCONHECIDA: Chovia tanto naquele dia... a senhorita perdeu o controle de seu carro, que saiu da estrada.;2;/A senhora por acaso é a morte?>36;Eu estou no Inferno?>36
-        36;DESCONHECIDA: Hahahaha a Senhorita faz muitas perguntas, assim como todos. Não, você não está no Inferno. E eu ?. As pessoas me chamam de diversos nomes. Eu não sou A Morte, eu nunca matei ninguém. Estou aqui somente para te recepcionar. Você pode me chamar de {morte}. ;1;/ [continuar] >37
+        36;DESCONHECIDA: Hahahaha a Senhorita faz muitas perguntas, assim como todos. Não, você não está no Inferno. E eu? As pessoas me chamam de diversos nomes. Eu não sou A Morte, eu nunca matei ninguém. Estou aqui somente para te recepcionar. Você pode me chamar de {morte}. ;1;/ [continuar] >37
         37;{morte}: Susan, querida, não chore. Ambas sabemos que foi um acidente. Você não entrou de carro naquela floresta de propósito. Por mais que aquela tenha sido a sua vontade naquele momento, sabemos que, no fundo, não aquela sua intenção. ;3;/Como assim naquele momento ?>38;Eu dirigi rápido de propósito?>38;Não consigo me lembrar de nada dos últimos meses.>38
         38; {morte}: Susan, venha até mim...;1;/[continuar]>39
         39; Ela se levantou da cadeira e se dirigiu para outro cômodo da casa.;1;/[continuar]>40
